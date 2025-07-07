@@ -1,0 +1,65 @@
+{
+  "year": "2013",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 3,
+  "dates": ["8/9/2013", "8/10/2013", "8/11/2013"],
+  "courses": ["Weibring", "Lick Creek", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [75, 78, 81]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [82, -1, -1]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [84, 95, 93]
+    },
+    {
+      "player_full_name": "Mark Hasty",
+      "scores": [77, -1, -1]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [79, 76, 83]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [86, 87, 83]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [90, 91, 89]
+    },
+    {
+      "player_full_name": "Michael Miller",
+      "scores": [107, -1, -1]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [72, 82, 87]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [76, 92, 88]
+    },
+    {
+      "player_full_name": "Darin Smith",
+      "scores": [76, -1, -1]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [103, 106, 106]
+    },
+    {
+      "player_full_name": "Greg Bange",
+      "scores": [104, -1, -1]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [96, 116, 103]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "year": "2000",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 2,
+  "dates": ["9/9/2000", "9/10/2000"],
+  "courses": ["Weaver Ridge", "Prarie Vista"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [73, 77]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [93, 82]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [77, 79]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [85, 73]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [81, 87]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [88, 80]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [103, -1]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [95, 91]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [103, 83]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [90, 83]
+    }
+  ]
+}

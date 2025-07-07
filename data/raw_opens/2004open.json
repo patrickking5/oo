@@ -1,0 +1,49 @@
+{
+  "year": "2004",
+  "champion_full_name": "Mark Oakley",
+  "number_of_rounds": 2,
+  "dates": ["8/7/2004", "8/8/2004"],
+  "courses": ["Prarie Vista", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [77, 75]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [-1, 91]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [85, 87]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [86, 95]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [72, 79]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [80, 90]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [82, 80]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [80, 82]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [87, 100]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [99, 108]
+    }
+  ]
+}

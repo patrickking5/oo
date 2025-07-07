@@ -1,0 +1,89 @@
+{
+  "year": "2020",
+  "champion_full_name": "Patrick King",
+  "number_of_rounds": 3,
+  "dates": ["7/10/2020", "7/11/2020", "7/12/2020"],
+  "courses": ["Weibring", "Prarie Vista", "Metamora Fields"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [78, 78, 76]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [95, 83, 90]
+    },
+    {
+      "player_full_name": "Mark Hasty",
+      "scores": [82, 82, 83]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [85, 91, 87]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [80, 80, 74]
+    },
+    {
+      "player_full_name": "Patrick King",
+      "scores": [78, 75, 75]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [89, 89, 88]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [86, 84, 81]
+    },
+    {
+      "player_full_name": "Ryan Blum",
+      "scores": [-1, 73, 75]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [80, 78, 75]
+    },
+    {
+      "player_full_name": "Bob Vogrich",
+      "scores": [93, 96, -1]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [76, 81, 80]
+    },
+    {
+      "player_full_name": "Ted Duke",
+      "scores": [-1, 89, -1]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [93, 93, 92]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [109, 109, 100]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [-1, 105, 103]
+    },
+    {
+      "player_full_name": "Timmy Miller",
+      "scores": [-1, 91, -1]
+    },
+    {
+      "player_full_name": "Michael Miller",
+      "scores": [-1, 103, -1]
+    },
+    {
+      "player_full_name": "Mitchell Bottorff",
+      "scores": [-1, 100, -1]
+    },
+    {
+      "player_full_name": "Jay Pettit",
+      "scores": [78, 79, 75]
+    }
+  ]
+}

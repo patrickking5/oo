@@ -1,0 +1,57 @@
+{
+  "year": "2007",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 3,
+  "dates": ["8/3/2007", "8/4/2007", "8/5/2007"],
+  "courses": ["Prarie Vista", "Lick Creek", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [76, 78, 75]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [83, 83, 88]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [87, 84, 90]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [77, 80, 76]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [83, 98, 84]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [90, -1, -1]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [73, 80, 92]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [107, 109, -1]
+    },
+    {
+      "player_full_name": "Mark Murray",
+      "scores": [87, -1, -1]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [80, 88, 87]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [99, 100, 118]
+    },
+    {
+      "player_full_name": "Darin Smith",
+      "scores": [-1, 81, -1]
+    }
+  ]
+}

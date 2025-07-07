@@ -1,0 +1,61 @@
+{
+  "year": "1999",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 2,
+  "dates": ["8/21/1999", "8/22/1999"],
+  "courses": ["Lick Creek", "Prarie Vista"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [79, 74]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [85, 81]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [89, 89]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [81, 74]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [91, 90]
+    },
+    {
+      "player_full_name": "Kevin Ieman",
+      "scores": [82, 84]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [88, 90]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [94, 93]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [88, 83]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [95, 94]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [102, 102]
+    },
+    {
+      "player_full_name": "Tom Gerdes",
+      "scores": [90, 89]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [101, 94]
+    }
+  ]
+}

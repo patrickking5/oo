@@ -1,0 +1,73 @@
+{
+  "year": "2018",
+  "champion_full_name": "Scott Dillon",
+  "number_of_rounds": 3,
+  "dates": ["6/29/2018", "6/30/2018", "7/1/2018"],
+  "courses": ["Weibring", "Lick Creek", "Metamora Fields"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [80, 76, 78]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [82, 86, 78]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [96, 84, 89]
+    },
+    {
+      "player_full_name": "Bob Vogrich",
+      "scores": [95, 94, -1]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [79, 78, 82]
+    },
+    {
+      "player_full_name": "Mark Hasty",
+      "scores": [75, 88, 78]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [83, 88, 81]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [-1, 97, 85]
+    },
+    {
+      "player_full_name": "Michael Miller",
+      "scores": [-1, 105, -1]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [78, 79, 74]
+    },
+    {
+      "player_full_name": "Ted Duke",
+      "scores": [85, -1, -1]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [78, 79, 86]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [-1, -1, 104]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [94, 92, -1]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [-1, -1, 104]
+    },
+    {
+      "player_full_name": "Patrick King",
+      "scores": [87, 86, 84]
+    }
+  ]
+}

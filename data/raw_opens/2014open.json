@@ -1,0 +1,53 @@
+{
+  "year": "2014",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 3,
+  "dates": ["11/3/2014", "11/4/2014", "11/5/2014"],
+  "courses": ["Golden Bear", "Southern Dunes", "Grand Cypress"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [83, 83, 82]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [96, 88, 85]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [88, 90, 92]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [81, 92, 79]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [109, 95, 98]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [88, 91, 85]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [84, 85, 85]
+    },
+    {
+      "player_full_name": "Greg Bange",
+      "scores": [98, 108, 97]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [89, 87, 84]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [105, 107, 101]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [102, 124, 115]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "year": "2009",
+  "champion_full_name": "Mark Oakley",
+  "number_of_rounds": 3,
+  "dates": ["8/8/2009", "8/8/2009", "8/9/2009"],
+  "courses": ["Prarie Vista", "Lick Creek", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [78, 85, 77]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [74, -1, -1]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [87, 91, 87]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [81, 78, 81]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [87, 88, 96]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [87, 98, -1]
+    },
+    {
+      "player_full_name": "Tom Fine",
+      "scores": [87, 90, 89]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [84, 81, 80]
+    },
+    {
+      "player_full_name": "Darin Smith",
+      "scores": [83, 87, -1]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [82, 85, 85]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [-1, 101, 94]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [106, 95, 98]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [-1, -1, 106]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "img_name": "2024champ.jpg",
+    "img_description": "Oll Presents the jacket to Jay Pettit.",
+    "img_people": ["Jay Pettit", "Mike King"],
+    "img_type": "champ",
+    "img_date": "7/14/2024",
+    "img_location": "Weaver Ridge"
+  },
+  {
+    "img_name": "2024group.jpg",
+    "img_description": "The group",
+    "img_people": ["Group"],
+    "img_type": "group",
+    "img_date": "7/13/2024",
+    "img_location": "Metamora Fields"
+  }
+]

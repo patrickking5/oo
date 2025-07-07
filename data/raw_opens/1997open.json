@@ -1,0 +1,57 @@
+{
+  "year": "1997",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 2,
+  "dates": ["6/21/1997", "6/22/1997"],
+  "courses": ["Lick Creek", "Prarie Vista"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [75, 76]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [86, 75]
+    },
+    {
+      "player_full_name": "Jim Shepard",
+      "scores": [94, 81]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [83, 77]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [91, 87]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [82, 86]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [83, 88]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [92, 86]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [98, 91]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [81, 90]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [96, 94]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [100, 109]
+    }
+  ]
+}

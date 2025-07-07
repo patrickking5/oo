@@ -1,0 +1,57 @@
+{
+  "year": "2017",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 3,
+  "dates": ["7/14/2017", "7/15/2017", "7/16/2017"],
+  "courses": ["Weibring", "Metamora Fields", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [75, 74, 79]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [92, 91, 93]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [85, 83, 85]
+    },
+    {
+      "player_full_name": "Bob Vogrich",
+      "scores": [96, -1, -1]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [74, 74, 82]
+    },
+    {
+      "player_full_name": "Mark Hasty",
+      "scores": [78, 81, 81]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [81, 85, 86]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [-1, 112, 111]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [81, 76, 82]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [75, 75, 87]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [100, 89, 101]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [101, 88, 114]
+    }
+  ]
+}

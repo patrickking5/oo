@@ -1,0 +1,137 @@
+{
+  "Mike King": {
+    "player_full_name": "Mike King",
+    "player_opens_data": [],
+    "full_opens_log": {
+      "years": [
+        "1987",
+        "1988",
+        "1989",
+        "1990",
+        "1991",
+        "1992",
+        "1993",
+        "1995",
+        "1996"
+      ],
+      "num": 9
+    },
+    "partial_opens_log": { "years": [], "num": 0 },
+    "course_data": {},
+    "total_opens_num": 9,
+    "num_rounds": 0,
+    "wins": 3,
+    "runner_ups": 0,
+    "third_place_finishes": 0,
+    "podium_finishes": 3,
+    "average_score": 0,
+    "eligible_score_history": [],
+    "total_strokes": 0
+  },
+  "Mike Maher": {
+    "player_full_name": "Mike Maher",
+    "player_opens_data": [],
+    "full_opens_log": {
+      "years": [
+        "1987",
+        "1988",
+        "1989",
+        "1990",
+        "1991",
+        "1992",
+        "1993",
+        "1995",
+        "1996"
+      ],
+      "num": 9
+    },
+    "partial_opens_log": { "years": [], "num": 0 },
+    "course_data": {},
+    "total_opens_num": 9,
+    "num_rounds": 0,
+    "wins": 3,
+    "runner_ups": 0,
+    "third_place_finishes": 0,
+    "podium_finishes": 3,
+    "average_score": 0,
+    "eligible_score_history": [],
+    "total_strokes": 0
+  },
+  "Stu Miller": {
+    "player_full_name": "Stu Miller",
+    "player_opens_data": [],
+    "full_opens_log": {
+      "years": ["1988", "1991"],
+      "num": 2
+    },
+    "partial_opens_log": { "years": [], "num": 0 },
+    "course_data": {},
+    "total_opens_num": 2,
+    "num_rounds": 0,
+    "wins": 2,
+    "runner_ups": 0,
+    "third_place_finishes": 0,
+    "podium_finishes": 2,
+    "average_score": 0,
+    "eligible_score_history": [],
+    "total_strokes": 0
+  },
+  "Mark Oakley": {
+    "player_full_name": "Mark Oakley",
+    "player_opens_data": [],
+    "full_opens_log": {
+      "years": [
+        "1987",
+        "1988",
+        "1989",
+        "1990",
+        "1991",
+        "1992",
+        "1993",
+        "1995",
+        "1996"
+      ],
+      "num": 9
+    },
+    "partial_opens_log": { "years": [], "num": 0 },
+    "course_data": {},
+    "total_opens_num": 9,
+    "num_rounds": 0,
+    "wins": 1,
+    "runner_ups": 0,
+    "third_place_finishes": 0,
+    "podium_finishes": 1,
+    "average_score": 0,
+    "eligible_score_history": [],
+    "total_strokes": 0
+  },
+  "Jeff King": {
+    "player_full_name": "Jeff King",
+    "player_opens_data": [],
+    "full_opens_log": {
+      "years": [
+        "1987",
+        "1988",
+        "1989",
+        "1990",
+        "1991",
+        "1992",
+        "1993",
+        "1995",
+        "1996"
+      ],
+      "num": 9
+    },
+    "partial_opens_log": { "years": [], "num": 0 },
+    "course_data": {},
+    "total_opens_num": 9,
+    "num_rounds": 0,
+    "wins": 0,
+    "runner_ups": 0,
+    "third_place_finishes": 0,
+    "podium_finishes": 0,
+    "average_score": 0,
+    "eligible_score_history": [],
+    "total_strokes": 0
+  }
+}

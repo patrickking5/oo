@@ -1,0 +1,69 @@
+{
+  "year": "2006",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 3,
+  "dates": ["8/11/2006", "8/12/2006", "8/13/2006"],
+  "courses": ["Prarie Vista", "The Rail", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [70, 80, 79]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [81, 84, 82]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [89, 80, 86]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [81, 85, 96]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [82, 76, 84]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [85, 89, 84]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [96, 90, 90]
+    },
+    {
+      "player_full_name": "Kevin Ieman",
+      "scores": [84, 88, 88]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [79, 88, 80]
+    },
+    {
+      "player_full_name": "Mark Murray",
+      "scores": [-1, 97, 94]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [84, 85, 84]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [-1, 93, 95]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [-1, 91, 103]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [117, 107, 114]
+    },
+    {
+      "player_full_name": "Tom Gerdes",
+      "scores": [90, 96, 97]
+    }
+  ]
+}

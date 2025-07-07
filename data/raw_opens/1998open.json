@@ -1,0 +1,57 @@
+{
+  "year": "1998",
+  "champion_full_name": "Mark Oakley",
+  "number_of_rounds": 2,
+  "dates": ["8/8/1998", "8/9/1998"],
+  "courses": ["Lick Creek", "Prarie Vista"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [79, 83]
+    },
+    {
+      "player_full_name": "Jim Shepard",
+      "scores": [90, 84]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [88, 80]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [83, 83]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [77, 78]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [88, 86]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [85, 81]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [96, 96]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [81, 77]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [100, 90]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [109, 91]
+    },
+    {
+      "player_full_name": "Tom Gerdes",
+      "scores": [87, 81]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "year": "2012",
+  "champion_full_name": "Mark Oakley",
+  "number_of_rounds": 3,
+  "dates": ["8/10/2012", "8/11/2012", "8/12/2012"],
+  "courses": ["Weibring", "The Elks", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [81, 77, 77]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [83, -1, -1]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [89, 87, 84]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [95, 103, 102]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [77, 82, 72]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [85, 95, 84]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [86, 85, 85]
+    },
+    {
+      "player_full_name": "Greg Bange",
+      "scores": [90, 97, -1]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [77, 88, 79]
+    },
+    {
+      "player_full_name": "Mark Hasty",
+      "scores": [80, 82, 83]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [81, 82, 77]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [78, 83, 83]
+    },
+    {
+      "player_full_name": "Jordan Muesser",
+      "scores": [-1, 78, 80]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [99, 96, 92]
+    },
+    {
+      "player_full_name": "Darin Smith",
+      "scores": [99, 96, 92]
+    }
+  ]
+}

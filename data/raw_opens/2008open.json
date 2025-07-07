@@ -1,0 +1,69 @@
+{
+  "year": "2008",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 3,
+  "dates": ["8/1/2008", "8/2/2008", "8/3/2008"],
+  "courses": ["Prarie Vista", "Lick Creek", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [76, 80, 79]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [83, 81, -1]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [82, 82, 97]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [81, 85, 86]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [83, 77, 79]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [84, 88, 90]
+    },
+    {
+      "player_full_name": "Tom Fine",
+      "scores": [79, 85, 92]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [94, 94, -1]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [79, 87, 86]
+    },
+    {
+      "player_full_name": "Greg Bange",
+      "scores": [99, -1, -1]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [84, 91, 87]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [-1, 98, 100]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [88, 89, 100]
+    },
+    {
+      "player_full_name": "Mark Murray",
+      "scores": [94, -1, -1]
+    },
+    {
+      "player_full_name": "Darin Smith",
+      "scores": [84, 85, -1]
+    }
+  ]
+}

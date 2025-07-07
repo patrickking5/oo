@@ -1,0 +1,73 @@
+{
+  "year": "2010",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 3,
+  "dates": ["8/6/2010", "8/7/2010", "8/8/2010"],
+  "courses": ["Weibring", "Lick Creek", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [71, 79, 73]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [74, -1, -1]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [89, 85, 82]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [76, 79, 79]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [75, 79, 78]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [83, 92, 94]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [89, 91, -1]
+    },
+    {
+      "player_full_name": "Jordan Muesser",
+      "scores": [-1, -1, 79]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [76, 79, 79]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [-1, -1, 107]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [77, 83, 81]
+    },
+    {
+      "player_full_name": "Mark Hasty",
+      "scores": [75, 89, -1]
+    },
+    {
+      "player_full_name": "Greg Bange",
+      "scores": [-1, -1, 101]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [103, 116, 98]
+    },
+    {
+      "player_full_name": "Darin Smith",
+      "scores": [86, 91, -1]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [-1, 98, 93]
+    }
+  ]
+}

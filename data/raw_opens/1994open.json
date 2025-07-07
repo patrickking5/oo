@@ -1,0 +1,69 @@
+{
+  "year": "1994",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 2,
+  "dates": ["6/15/1994", "6/16/1994"],
+  "courses": ["Prarie Vista", "Lick Creek"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [78, 80]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [89, 80]
+    },
+    {
+      "player_full_name": "Jim Shepard",
+      "scores": [91, 83]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [91, 84]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [90, 87]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [84, 85]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [94, 83]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [87, 90]
+    },
+    {
+      "player_full_name": "Kevin Ieman",
+      "scores": [84, 94]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [93, 85]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [89, 90]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [91, 90]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [93, 99]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [98, 96]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [104, 104]
+    }
+  ]
+}

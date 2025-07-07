@@ -1,0 +1,96 @@
+{
+  "year": "2023",
+  "champion_full_name": "Mark Oakley",
+  "number_of_rounds": 3,
+  "dates": ["7/14/2023", "7/15/2023", "7/16/2023"],
+  "courses": ["Weibring", "Metamora Fields", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [75, 75, 76]
+    },
+
+    {
+      "player_full_name": "Mike King",
+      "scores": [87, 85, 83]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [70, 72, 77]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [87, 81, 91]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [84, 91, 86]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [79, 79, 82]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [77, 80, 77]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [99, 106, 92]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [95, 102, 102]
+    },
+    {
+      "player_full_name": "Mark Hasty",
+      "scores": [76, 89, 74]
+    },
+    {
+      "player_full_name": "Patrick King",
+      "scores": [85, 75, 77]
+    },
+    {
+      "player_full_name": "Jay Pettit",
+      "scores": [78, 79, 80]
+    },
+    {
+      "player_full_name": "Ryan Gillespe",
+      "scores": [81, 79, 84]
+    },
+    {
+      "player_full_name": "Ryan Blum",
+      "scores": [79, 72, 79]
+    },
+    {
+      "player_full_name": "John Sherman",
+      "scores": [87, 86, 99]
+    },
+
+    {
+      "player_full_name": "Ted Duke",
+      "scores": [-1, 86, 82]
+    },
+    {
+      "player_full_name": "Mark Murray",
+      "scores": [101, -1, -1]
+    },
+    {
+      "player_full_name": "Zach Freeman",
+      "scores": [-1, -1, 82]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [-1, 106, 112]
+    },
+
+    {
+      "player_full_name": "Bryan Amidon",
+      "scores": [94, 91, 89]
+    },
+    {
+      "player_full_name": "Theo Hoby",
+      "scores": [84, 76, 87]
+    }
+  ]
+}

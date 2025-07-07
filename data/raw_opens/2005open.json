@@ -1,0 +1,69 @@
+{
+  "year": "2005",
+  "champion_full_name": "Mark Oakley",
+  "number_of_rounds": 2,
+  "dates": ["8/6/2005", "8/7/2005"],
+  "courses": ["Prarie Vista", "Weaver Ridge"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [81, 76]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [86, 86]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [86, 87]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [75, 75]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [84, 83]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [86, 83]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [86, 102]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [87, 88]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [102, -1]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [100, 103]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [100, 102]
+    },
+    {
+      "player_full_name": "Mark Murray",
+      "scores": [95, 89]
+    },
+    {
+      "player_full_name": "Tom Gerdes",
+      "scores": [88, 99]
+    },
+    {
+      "player_full_name": "Tom Fine",
+      "scores": [89, 83]
+    },
+    {
+      "player_full_name": "Mike Matthews",
+      "scores": [83, 84]
+    }
+  ]
+}

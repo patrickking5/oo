@@ -1,0 +1,50 @@
+{
+  "Weibring": {
+    "par": 71,
+    "short_name": "ISU"
+  },
+  "Weaver Ridge": {
+    "par": 72,
+    "short_name": "Weaver"
+  },
+  "Metamora Fields": {
+    "par": 71,
+    "short_name": "MF"
+  },
+  "Prarie Vista": {
+    "par": 72,
+    "short_name": "PV"
+  },
+  "Lick Creek": {
+    "par": 72,
+    "short_name": "Lick"
+  },
+  "Waldorf Astoria": {
+    "par": 72,
+    "short_name": "W. Astoria"
+  },
+  "Orange County": {
+    "par": 72,
+    "short_name": "O. County"
+  },
+  "Golden Bear": {
+    "par": 72,
+    "short_name": "G. Bear"
+  },
+  "The Rail": {
+    "par": 72,
+    "short_name": "Rail"
+  },
+  "Southern Dunes": {
+    "par": 72,
+    "short_name": "S. Dunes"
+  },
+  "Grand Cypress": {
+    "par": 72,
+    "short_name": "G Cypress"
+  },
+  "The Elks": {
+    "par": 72,
+    "short_name": "Elks"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "year": "2022",
+  "champion_full_name": "Patrick King",
+  "number_of_rounds": 3,
+  "dates": ["7/8/2022", "7/9/2022", "7/10/2022"],
+  "courses": ["Prarie Vista", "Weibring", "Metamora Fields"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [80, 76, 76]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [85, 91, 94]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [84, 93, 82]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [77, 74, 75]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [93, 90, 84]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [90, 87, 82]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [80, 74, 79]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [86, 80, 82]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [105, 102, 98]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [107, 98, 111]
+    },
+    {
+      "player_full_name": "Mark Hasty",
+      "scores": [75, 76, 78]
+    },
+    {
+      "player_full_name": "Patrick King",
+      "scores": [71, 75, 77]
+    },
+    {
+      "player_full_name": "Jay Pettit",
+      "scores": [77, 74, 73]
+    },
+    {
+      "player_full_name": "Ryan Gillespe",
+      "scores": [87, 81, 80]
+    },
+    {
+      "player_full_name": "Ryan Blum",
+      "scores": [-1, 76, 71]
+    },
+    {
+      "player_full_name": "John Sherman",
+      "scores": [101, 91, 88]
+    },
+    {
+      "player_full_name": "Bob Vogrich",
+      "scores": [-1, -1, 86]
+    },
+    {
+      "player_full_name": "Ted Duke",
+      "scores": [-1, 84, -1]
+    },
+    {
+      "player_full_name": "Rob Ginder",
+      "scores": [-1, 94, -1]
+    },
+    {
+      "player_full_name": "Mitchell Bottorff",
+      "scores": [-1, 97, 96]
+    },
+    {
+      "player_full_name": "Timmy Miller",
+      "scores": [-1, 95, -1]
+    },
+    {
+      "player_full_name": "Michael Miller",
+      "scores": [-1, 96, -1]
+    },
+    {
+      "player_full_name": "Bryan Amidon",
+      "scores": [98, 96, 97]
+    }
+  ]
+}

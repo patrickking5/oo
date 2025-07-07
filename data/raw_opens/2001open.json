@@ -1,0 +1,65 @@
+{
+  "year": "2001",
+  "champion_full_name": "Mike Maher",
+  "number_of_rounds": 2,
+  "dates": ["8/11/2001", "8/12/2001"],
+  "courses": ["Weaver Ridge", "Prarie Vista"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [73, 76]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [84, 90]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [83, 86]
+    },
+    {
+      "player_full_name": "Kevin Muesser",
+      "scores": [84, 99]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [79, 89]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [85, 94]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [83, 87]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [91, 95]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [86, 90]
+    },
+    {
+      "player_full_name": "Mark Woodell",
+      "scores": [93, 103]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [104, 103]
+    },
+    {
+      "player_full_name": "Tom Gerdes",
+      "scores": [-1, 100]
+    },
+    {
+      "player_full_name": "Mike Matthews",
+      "scores": [73, 78]
+    },
+    {
+      "player_full_name": "Tom Seeforth",
+      "scores": [94, 102]
+    }
+  ]
+}
