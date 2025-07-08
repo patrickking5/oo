@@ -45,7 +45,10 @@ export default function FilterPlayerButton({
           onClick={handleClick}
           startIcon={<PersonAddAltIcon sx={{ mr: -0.75, width: 18 }} />}
           variant="outlined"
-          sx={{ py: 0.5, px: 1 }}
+          sx={{
+            py: 0.5,
+            px: 1,
+          }}
         >
           <Typography
             variant={buttonTextVariant}

@@ -1,24 +1,9 @@
-import * as React from "react";
-import {
-  Box,
-  Container,
-  List,
-  ListItem,
-  ListItemText,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { grey, red } from "@mui/material/colors";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { EmojiEvents } from "@mui/icons-material";
-import Modal from "@mui/material/Modal";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import CheckIcon from "@mui/icons-material/Check";
-import GolfCourseIcon from "@mui/icons-material/GolfCourse";
 import DeleteForeverTwoToneIcon from "@mui/icons-material/DeleteForeverTwoTone";
+import { Box, List, Stack, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+import { red } from "@mui/material/colors";
 export default function PlayerModal({
   stats,
   selectedPlayers,
@@ -65,16 +50,18 @@ export default function PlayerModal({
     <Modal sx={{ mx: 1, mt: 2 }} open={open} onClose={handleClose}>
       <Box
         sx={{
+          outline: "none",
           border: 3,
-          borderRadius: 5,
+          borderRadius: 3,
           borderColor: "primary2.main",
           backgroundColor: "primary2.dark",
-          width: { xs: "100%", sm: 500 },
+          width: { xs: "100%" },
         }}
       >
         <Stack
           direction={"row"}
           alignItems={"center"}
+          justifyContent={"center"}
           sx={{
             borderBottom: 1,
             borderColor: "primary2.main",
@@ -125,9 +112,9 @@ export default function PlayerModal({
           sx={{
             // p: 0,
             py: 0.5,
-            px: 0.5,
-
-            columnCount: 3,
+            px: { xs: 0.5 },
+            mx: { xs: 0, sm: 5, md: 10, lg: 20, xl: 30 },
+            columnCount: { xs: 3, md: 4, lg: 5 },
           }}
         >
           {sortedPlayers.map((playerName: any, index: number) => (
@@ -153,14 +140,22 @@ export default function PlayerModal({
                 //   selectedPlayer === playerName || comparedPlayer === playerName
                 //     ? grey[400]
                 //     : null,
-                // color:
-                //   selectedPlayer === playerName || comparedPlayer === playerName
-                //     ? "black"
-                //     : null,
+
                 fontSize: { xs: "0.7rem", sm: "0.875rem" },
               }}
             >
-              {playerName}
+              <Typography
+                variant="h4"
+                sx={{
+                  fontSize: { xs: "0.7rem", sm: "0.875rem" },
+                  color: selectedPlayers?.includes(playerName)
+                    ? "grey.400"
+                    : "primary2.light",
+                }}
+              >
+                {playerName}
+              </Typography>
+
               {stats[playerName].wins > 0 ? (
                 <Stack
                   alignItems={"center"}
@@ -173,7 +168,7 @@ export default function PlayerModal({
                       // pl: 0.5,
                       fontSize: { xs: "0.7rem", sm: "0.875rem" },
                       color: selectedPlayers?.includes(playerName)
-                        ? "black"
+                        ? "grey.400"
                         : "gold",
                     }}
                   />
@@ -181,7 +176,7 @@ export default function PlayerModal({
                     variant="caption"
                     sx={{
                       color: selectedPlayers?.includes(playerName)
-                        ? "black"
+                        ? "grey.400"
                         : "gold",
                       fontSize: { xs: "0.7rem", sm: "0.875rem" },
                     }}
