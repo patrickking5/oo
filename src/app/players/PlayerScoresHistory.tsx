@@ -53,10 +53,7 @@ const RankTypography: React.FC<any> = ({
         sx={{
           // lineHeight: 1,
           // p: 0.5,
-          color:
-            player?.rank[0] === "-"
-              ? `${currentColor}.light`
-              : `${currentColor}.light`,
+          color: player?.rank[0] === "-" ? `grey.600` : `${currentColor}.light`,
           display: "flex",
           fontWeight: player?.rank == "1st" ? 900 : 400,
 
@@ -85,7 +82,7 @@ const ScoreTypography: React.FC<any> = ({
           sx={{
             color:
               player.rounds[roundIndex].score > 0
-                ? `${currentColor}.main`
+                ? `grey.600`
                 : `${currentColor}.main`,
             fontStyle: "normal",
           }}

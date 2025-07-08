@@ -67,10 +67,10 @@ export default function OpenLineChart({
     (acc: any, point: any) => {
       playerNames.forEach((name) => {
         const val = point[name];
-        const valRounded = Math.round(val * 10) / 10;
-        if (valRounded != null) {
-          acc.min = Math.min(acc.min, valRounded);
-          acc.max = Math.max(acc.max, valRounded);
+
+        if (val != null) {
+          acc.min = Math.min(acc.min, val);
+          acc.max = Math.max(acc.max, val);
         }
       });
       return acc;

@@ -214,7 +214,7 @@ export default function OpenBarChart({
                               borderTopRightRadius: 3,
                               borderBottomRightRadius: 3,
                               // bgcolor: `${colorMap[index2]}.main`,
-                              background: `linear-gradient(to right, ${paletteColor.light}, ${paletteColor.main})`,
+                              background: `linear-gradient(to right, ${paletteColor.dark}, ${paletteColor.main})`,
 
                               width: `${
                                 avg != null
@@ -232,7 +232,7 @@ export default function OpenBarChart({
                               pl: 0.2,
                               fontWeight: 700,
                               color: avg
-                                ? `${colorMap[index2]}.dark`
+                                ? `${colorMap[index2]}.light`
                                 : "grey.500",
                               zIndex: 1,
                             }}
