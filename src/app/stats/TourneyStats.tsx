@@ -43,7 +43,7 @@ export default function TourneyStats({
       sx={{
         width: "100%",
         display: "flex",
-        flexDirection: { xs: "column", sm: "column", lg: "row" },
+        flexDirection: { xs: "column", sm: "column", md: "column", lg: "row" },
       }}
     >
       <Stack spacing={2} sx={{ flex: 1 }}>
@@ -62,20 +62,6 @@ export default function TourneyStats({
           statRankings={statRankings}
           all_player_stats={all_player_stats}
         />
-        {/* <TourneyTopLists
-          listToShow={statRankings.most_rds_below_80}
-          all_player_stats={all_player_stats}
-          primary_title={"RDs below 80"}
-          min_num_rounds_to_show={1}
-          // note_in_title={"* MIN. 5 rounds played to qualify *"}
-        />
-        <TourneyTopLists
-          listToShow={statRankings.most_total_strokes}
-          all_player_stats={all_player_stats}
-          primary_title={"Total Strokes"}
-          min_num_rounds_to_show={1}
-          // note_in_title={"* MIN. 5 rounds played to qualify *"}
-        /> */}
       </Box>
     </Stack>
   );

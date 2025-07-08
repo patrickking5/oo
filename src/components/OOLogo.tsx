@@ -1,6 +1,5 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { grey } from "@mui/material/colors";
-import React from "react";
 
 function OOLogo({ logoWidth = "100%" }: any) {
   return (
