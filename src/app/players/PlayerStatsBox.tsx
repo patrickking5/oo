@@ -113,15 +113,17 @@ export default function PlayerStatsBox({
         <Table size="small" sx={{ backgroundColor: "primary2.dark" }}>
           <TableBody>
             <LabelRow labels={labels} />
-            {playerNames.map((playerName: string, index: number) => (
-              <StatRow
-                key={index}
-                allPlayerStats={allPlayerStats}
-                columnNames={columnNames}
-                playerName={playerName}
-                currentColor={colorMap[index]}
-              />
-            ))}
+            {allNames.map((playerName: string, index: number) =>
+              playerNames.includes(playerName) ? (
+                <StatRow
+                  key={index}
+                  allPlayerStats={allPlayerStats}
+                  columnNames={columnNames}
+                  playerName={playerName}
+                  currentColor={colorMap[index]}
+                />
+              ) : null
+            )}
           </TableBody>
         </Table>
       </TableContainer>
