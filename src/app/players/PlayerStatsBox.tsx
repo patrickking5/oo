@@ -45,10 +45,17 @@ const StatRow: React.FC<any> = ({
       {columnNames.map((columnName: string, index: number) => (
         <TableCell align="center" key={index} sx={{ p: 0 }}>
           <Typography variant="h1" sx={{ color: `${currentColor}.light` }}>
-            {allPlayerStats[playerName][columnName].toLocaleString()}
-            {["wins", "runner_ups", "third_place_finishes"].includes(columnName)
-              ? "x"
-              : null}
+            {(() => {
+              const value = allPlayerStats[playerName][columnName];
+              if (
+                ["wins", "runner_ups", "third_place_finishes"].includes(
+                  columnName
+                )
+              ) {
+                return value > 0 ? `${value}x` : "-";
+              }
+              return value.toLocaleString();
+            })()}
           </Typography>
 
           {/* <Typography variant="caption">{subText}</Typography> */}
@@ -64,9 +71,31 @@ export default function PlayerStatsBox({
   title,
   labels,
   columnNames,
+  checkPodium = false,
 }: any) {
-  // console.log(allPlayerStats);
-  const playerNames = Object.keys(allPlayerStats);
+  const allNames = Object.keys(allPlayerStats);
+
+  const hasPodium = (playerName: string) => {
+    const stats = allPlayerStats[playerName] || {};
+    return (
+      (stats.wins ?? 0) > 0 ||
+      (stats.runner_ups ?? 0) > 0 ||
+      (stats.third_place_finishes ?? 0) > 0
+    );
+  };
+
+  let playerNames = allNames;
+
+  if (checkPodium) {
+    playerNames = allNames.filter((name) => hasPodium(name));
+
+    if (allNames.length > 1 && playerNames.length === 0) {
+      return null; // hide entire box
+    }
+  }
+  if (playerNames.length === 0) {
+    return null;
+  }
 
   return (
     <Box

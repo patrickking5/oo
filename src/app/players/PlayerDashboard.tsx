@@ -1,11 +1,9 @@
 import { Box, Stack } from "@mui/material";
-import React from "react";
-import PlayerGeneralStats from "./PlayerStatsBox";
-import PlayerStatsBox from "./PlayerStatsBox";
-import OpenLineChart from "./OpenLineChart";
-import PlayersScoresHistory from "./PlayerScoresHistory";
 import { isXs } from "../utils/isXs";
 import OpenBarChart from "./OpenBarChart";
+import OpenLineChart from "./OpenLineChart";
+import PlayersScoresHistory from "./PlayerScoresHistory";
+import PlayerStatsBox from "./PlayerStatsBox";
 
 function PlayerDashboard({ stats, selectedPlayers, colorMap = null }: any) {
   const allPlayerStats = selectedPlayers.reduce((acc: any, playerName: any) => {
@@ -46,6 +44,7 @@ function PlayerDashboard({ stats, selectedPlayers, colorMap = null }: any) {
         />
         <PlayerStatsBox
           allPlayerStats={allPlayerStats}
+          checkPodium={true}
           colorMap={colorMap}
           title={"Podium Finishes"}
           labels={["", "Wins", "2nds", "3rds", "Total"]}
