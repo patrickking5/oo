@@ -1,5 +1,4 @@
 import AccessTimeTwoToneIcon from "@mui/icons-material/AccessTimeTwoTone";
-import DateRangeTwoToneIcon from "@mui/icons-material/DateRangeTwoTone";
 import GolfCourseTwoToneIcon from "@mui/icons-material/GolfCourseTwoTone";
 import { Box, Stack, Typography } from "@mui/material";
 
@@ -7,7 +6,7 @@ const RoundBoxLine: any = ({ icon, text }: any) => {
   return (
     <Stack
       direction={"row"}
-      spacing={0.25}
+      spacing={0.5}
       alignItems={"center"}
       justifyContent={"left"}
     >
@@ -15,9 +14,9 @@ const RoundBoxLine: any = ({ icon, text }: any) => {
       <Typography
         variant={"caption"}
         sx={{
-          fontWeight: 400,
+          fontWeight: 500,
           color: "primary2.light",
-          fontSize: { xs: 12, sm: 14 },
+          fontSize: { xs: 14, sm: 16 },
         }}
       >
         {text}
@@ -35,41 +34,48 @@ const RoundBox: any = ({
   return (
     <Stack
       sx={{
-        border: 2,
+        border: 0,
+        borderTop: 2,
         bgcolor: "primary2.dark",
-        borderRadius: 2,
+        // borderRadius: 2,
         p: 0.5,
         borderColor: "primary2.main",
       }}
     >
       <Typography align="center" variant="h4">
-        Round {roundNum}
+        {roundDate} - Round {roundNum}
       </Typography>
-      <RoundBoxLine
+      {/* <RoundBoxLine
         icon={
           <DateRangeTwoToneIcon sx={{ width: 18, color: "primary.light" }} />
         }
         text={roundDate}
-      />
-      <RoundBoxLine
-        icon={
-          <GolfCourseTwoToneIcon sx={{ width: 18, color: "primary.light" }} />
-        }
-        text={roundCourse}
-      />
-      <RoundBoxLine
-        icon={
-          <AccessTimeTwoToneIcon sx={{ width: 18, color: "primary.light" }} />
-        }
-        text={roundTeeTimes}
-      />
+      /> */}
+      <Stack
+        direction={"row"}
+        spacing={2}
+        sx={{ width: "100%", justifyContent: "center" }}
+      >
+        <RoundBoxLine
+          icon={
+            <GolfCourseTwoToneIcon sx={{ width: 18, color: "primary.light" }} />
+          }
+          text={roundCourse}
+        />
+        <RoundBoxLine
+          icon={
+            <AccessTimeTwoToneIcon sx={{ width: 18, color: "primary.light" }} />
+          }
+          text={roundTeeTimes}
+        />
+      </Stack>
     </Stack>
   );
 };
 
 export default function NewsDates() {
   return (
-    <Box sx={{ mb: 1 }}>
+    <Box sx={{ mb: 1, width: "100%" }}>
       <Typography
         align="center"
         variant="body1"
@@ -80,24 +86,24 @@ export default function NewsDates() {
       >
         The committee has decided on the 2025 Oll Open Dates!
       </Typography>
-      <Stack direction={"row"} spacing={1} justifyContent={"center"}>
+      <Stack direction={"column"} spacing={1} justifyContent={"center"}>
         <RoundBox
           roundNum={1}
           roundDate="Aug 22nd"
-          roundCourse=" Course TBD"
-          roundTeeTimes="Tee Times TBD"
+          roundCourse="ISU - Weibring"
+          roundTeeTimes="11 AM - Noon"
         />
         <RoundBox
           roundNum={2}
           roundDate="Aug 23rd"
-          roundCourse=" Course TBD"
-          roundTeeTimes="Tee Times TBD"
+          roundCourse="Weaver Ridge"
+          roundTeeTimes="9:30 - 10:30 AM"
         />
         <RoundBox
           roundNum={3}
           roundDate="Aug 24th"
-          roundCourse=" Course TBD"
-          roundTeeTimes="Tee Times TBD"
+          roundCourse="Metamora Fields"
+          roundTeeTimes="9 - 10 AM"
         />
       </Stack>
     </Box>
