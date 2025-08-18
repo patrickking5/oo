@@ -1,6 +1,7 @@
 import AccessTimeTwoToneIcon from "@mui/icons-material/AccessTimeTwoTone";
 import GolfCourseTwoToneIcon from "@mui/icons-material/GolfCourseTwoTone";
 import { Box, Stack, Typography } from "@mui/material";
+import { grey } from "@mui/material/colors";
 
 const RoundBoxLine: any = ({ icon, text }: any) => {
   return (
@@ -35,7 +36,7 @@ const RoundBox: any = ({
     <Stack
       sx={{
         border: 0,
-        borderRadius: 3,
+        borderTop: 2,
         bgcolor: "primary2.dark",
         // borderRadius: 2,
         p: 0.5,
@@ -73,7 +74,7 @@ const RoundBox: any = ({
   );
 };
 
-export default function NewsDates() {
+export default function RSVPInfo() {
   return (
     <Box
       sx={{
@@ -82,6 +83,7 @@ export default function NewsDates() {
         border: 1.5,
         borderRadius: 3,
         borderColor: "primary2.main",
+        px: 0.5,
       }}
     >
       <Typography
@@ -92,28 +94,23 @@ export default function NewsDates() {
           fontWeight: 700,
         }}
       >
-        2025 Oll Open Dates!
+        2025 Oll Open RSVPs!
       </Typography>
-      <Stack direction={"column"} spacing={1} justifyContent={"center"}>
-        <RoundBox
-          roundNum={1}
-          roundDate="Aug 22nd"
-          roundCourse="ISU - Weibring"
-          roundTeeTimes="11 AM - Noon"
-        />
-        <RoundBox
-          roundNum={2}
-          roundDate="Aug 23rd"
-          roundCourse="Weaver Ridge"
-          roundTeeTimes="9:30 - 10:30 AM"
-        />
-        <RoundBox
-          roundNum={3}
-          roundDate="Aug 24th"
-          roundCourse="Metamora Fields"
-          roundTeeTimes="9 - 10 AM"
-        />
-      </Stack>
+
+      <Box
+        component="img"
+        sx={{
+          // height: "auto",
+          width: "100%",
+          border: 0,
+          borderColor: grey[800],
+          borderRadius: 2,
+          // maxHeight: { xs: 233, md: 167 },
+          // maxWidth: { xs: 350, sm: 400 },
+        }}
+        alt="RSVPs"
+        src={`/photos/2025rsvplist.png`}
+      />
     </Box>
   );
 }

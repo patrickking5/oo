@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
 import ComponentTypography from "./ComponentTypography";
 import NewsDates from "./NewsDates";
+import NewsRules from "./NewsRules";
+import RSVPInfo from "./RSVPInfo";
 
 export default function News() {
   return (
@@ -17,6 +19,8 @@ export default function News() {
       <ComponentTypography title={"News"} />
 
       <NewsDates />
+      <RSVPInfo />
+      <NewsRules />
     </Box>
   );
 }
