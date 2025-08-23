@@ -7,85 +7,85 @@
   "players": [
     {
       "player_full_name": "Mike Maher",
-      "scores": [82, 0, 0]
+      "scores": [82, 81, 0]
     },
     {
       "player_full_name": "Mike King",
-      "scores": [80, 0, 0]
+      "scores": [80, 82, 0]
     },
     {
       "player_full_name": "Carrie Bottorff",
-      "scores": [87, 0, 0]
+      "scores": [87, 87, 0]
     },
     {
       "player_full_name": "Chris Baum",
-      "scores": [81, 0, 0]
+      "scores": [81, 91, 0]
     },
     {
       "player_full_name": "Scott Dillon",
-      "scores": [81, 0, 0]
+      "scores": [81, 96, 0]
     },
     {
       "player_full_name": "Jeff King",
-      "scores": [79, 0, 0]
+      "scores": [79, 78, 0]
     },
     {
       "player_full_name": "Rick Shields",
-      "scores": [95, 0, 0]
+      "scores": [95, 123, 0]
     },
     {
       "player_full_name": "Mark Hasty",
-      "scores": [75, 0, 0]
+      "scores": [75, 81, 0]
     },
     {
       "player_full_name": "Patrick King",
-      "scores": [79, 0, 0]
+      "scores": [79, 75, 0]
     },
     {
       "player_full_name": "Jay Pettit",
-      "scores": [74, 0, 0]
+      "scores": [74, 79, 0]
     },
 
     {
       "player_full_name": "Ryan Blum",
-      "scores": [78, 0, 0]
+      "scores": [78, 81, 0]
     },
 
     {
       "player_full_name": "Mark Widdel",
-      "scores": [100, 0, 0]
+      "scores": [100, 98, 0]
     },
     {
       "player_full_name": "Ryan Gillespie",
-      "scores": [78, 0, 0]
+      "scores": [78, 73, 0]
     },
     {
       "player_full_name": "Tom Oberwetter",
-      "scores": [106, 0, 0]
+      "scores": [106, 108, 0]
     },
     {
       "player_full_name": "Bryan Amidon",
-      "scores": [94, 0, 0]
+      "scores": [94, 87, 0]
     },
     {
       "player_full_name": "Theo Hoby",
-      "scores": [80, 0, 0]
+      "scores": [80, 88, 0]
     },
     {
       "player_full_name": "Mark Oakley",
-      "scores": [77, 0, 0]
+      "scores": [77, 75, 0]
     },
     {
       "player_full_name": "Mitchell Bottorff",
-      "scores": [88, 0, 0]
+      "scores": [88, 95, 0]
     },
     {
       "player_full_name": "Stu Miller",
-      "scores": [92, 0, -1]
+      "scores": [92, 94, -1]
     },
     {
       "player_full_name": "Bob Vogrich",
-      "scores": [94, 0, -1]
+      "scores": [94, 88, -1]
     },
     {
       "player_full_name": "Bryan Berndt",
@@ -93,15 +93,15 @@
     },
     {
       "player_full_name": "John Sherman",
-      "scores": [-1, 0, -1]
+      "scores": [-1, 93, -1]
     },
     {
       "player_full_name": "Zach Freeman",
-      "scores": [-1, 0, -1]
+      "scores": [-1, 82, -1]
     },
     {
       "player_full_name": "Ted Duke",
-      "scores": [-1, 0, -1]
+      "scores": [-1, 78, -1]
     }
   ]
 }
