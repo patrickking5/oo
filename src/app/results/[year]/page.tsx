@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import YearDetails from "./YearDetails";
 
 export default function YearResults() {
-  const items = useOpensData();
+  const items = useOpensData().opens_data;
 
   const router = useRouter();
 

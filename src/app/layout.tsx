@@ -40,9 +40,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const allData = loadOpensData(); // Call the function directly here
-  const jsonData = allData.opens_data;
+  const jsonData = {
+    opens_data: allData.opens_data,
+    live_open_data: allData.live_open_data,
+  };
   const statsData = allData.stats_data;
-
   const imgData = loadImgData();
 
   const drawerWidth = 135;

@@ -19,7 +19,7 @@ export default function Results() {
     });
   }, []);
 
-  const items = useOpensData();
+  const items = useOpensData().opens_data;
 
   const router = useRouter();
 

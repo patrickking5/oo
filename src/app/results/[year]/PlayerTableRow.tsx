@@ -46,7 +46,7 @@ export default function PlayerTableRow({ player_data, index, eligible }: any) {
                 : 400,
           }}
         >
-          {player_data.rank}
+          {player_data.rank !== "-1" ? player_data.rank : ""}
         </Typography>
       </TableCell>
       <TableCell
@@ -82,7 +82,7 @@ export default function PlayerTableRow({ player_data, index, eligible }: any) {
               fontSize: { xs: "0.8rem", sm: "1rem" },
             }}
           >
-            {score > 0 ? score : "-"}
+            {score > -1 ? score : "-"}
           </Typography>
         </TableCell>
       ))}
@@ -100,7 +100,7 @@ export default function PlayerTableRow({ player_data, index, eligible }: any) {
             fontSize: { xs: "0.8rem", sm: "1rem" },
           }}
         >
-          {player_data.totalScore > 0 ? player_data.totalScore : "-"}
+          {player_data.totalScore > -1 ? player_data.totalScore : "-"}
         </Typography>
       </TableCell>
     </TableRow>

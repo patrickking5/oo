@@ -1,16 +1,14 @@
 "use client";
 
-import { AppBar, Box, Grid2, Icon, Stack, Typography } from "@mui/material";
-import { grey } from "@mui/material/colors";
-import { useEffect, useRef, useState, ReactNode } from "react";
-import OOLogo from "./OOLogo";
-import HomeIcon from "@mui/icons-material/Home";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import CollectionsIcon from "@mui/icons-material/Collections";
-import Home from "@/app/page";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import HomeIcon from "@mui/icons-material/Home";
 import PeopleAltTwoToneIcon from "@mui/icons-material/PeopleAltTwoTone";
-
+import PlayCircleTwoToneIcon from "@mui/icons-material/PlayCircleTwoTone";
+import { AppBar, Box, Grid2, Stack, Typography } from "@mui/material";
+import { ReactNode } from "react";
+import OOLogo from "./OOLogo";
 const titleColor = "white";
 
 const iconMap: Record<string, React.ReactElement> = {
@@ -21,6 +19,7 @@ const iconMap: Record<string, React.ReactElement> = {
   players: (
     <PeopleAltTwoToneIcon sx={{ mr: 1, fontSize: 30, color: titleColor }} />
   ),
+  live: <PlayCircleTwoToneIcon sx={{ mr: 1, fontSize: 30, color: "red" }} />,
 };
 
 interface StatsAppBarProps {
@@ -96,6 +95,7 @@ export default function DynamicPageHeader({
                     iconMap.icon}
                   {title}
                 </Typography>
+
                 {topChildren}
               </Stack>
             </Grid2>

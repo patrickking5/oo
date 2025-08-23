@@ -5,7 +5,8 @@ import CustomImage from "@/components/CustomImage";
 import History from "@/components/History";
 import News from "@/components/News";
 import { useHeader } from "@/context/HeaderContext";
-import { Box, Stack } from "@mui/material";
+import { PlayCircleFilledTwoTone } from "@mui/icons-material";
+import { Box, Button, Stack } from "@mui/material";
 import { useEffect } from "react";
 import home_img_metadata from "../../data/home_img_metadata.json";
 
@@ -16,7 +17,15 @@ export default function Home() {
     setHeaderContent({
       title: "Home",
       icon: "home",
-      topChildren: null,
+      topChildren: (
+        <Button
+          href={"/live"}
+          startIcon={<PlayCircleFilledTwoTone />}
+          sx={{ bgcolor: "red", color: "white" }}
+        >
+          LIVE RESULTS!!!
+        </Button>
+      ),
     });
   }, []);
 

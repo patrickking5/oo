@@ -2,14 +2,14 @@
 // context/ItemContext.tsx
 import React, { createContext, useContext } from "react";
 
-const ItemContext = createContext<any[]>([]);
+const ItemContext = createContext<any>({});
 
 export const ItemContextProvider = ({
   children,
   value,
 }: {
   children: React.ReactNode;
-  value: any[];
+  value: { opens_data: any[]; live_open_data: any };
 }) => {
   return <ItemContext.Provider value={value}>{children}</ItemContext.Provider>;
 };

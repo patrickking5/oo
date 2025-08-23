@@ -1,6 +1,15 @@
 import fs from "fs";
 import path from "path";
+import { loadSingleOpen } from "./loadSingleOpen";
 import { updatePlayerStats } from "./updatePlayerStats";
+
+const csvEscape = (value: string | number | null | undefined) => {
+  if (value === null || value === undefined) return "";
+  const s = String(value);
+  // Wrap in quotes if it contains quotes, comma, or newline; escape " as ""
+  if (/[",\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+  return s;
+};
 
 export const loadOpensData = () => {
   const dataDir = path.join(process.cwd(), "data");
@@ -21,130 +30,9 @@ export const loadOpensData = () => {
 
   const jsonData = fileNames.map((fileName) => {
     const filePath = path.join(`${dataDir}/raw_opens`, fileName);
-    const fileContents = fs.readFileSync(filePath, "utf-8");
-    const tournamentData = JSON.parse(fileContents);
-
-    // Separate players into valid and ineligible
-    const validPlayers = tournamentData.players.filter(
-      (player: any) => !player.scores.includes(-1)
-    );
-    const ineligiblePlayers = tournamentData.players.filter((player: any) =>
-      player.scores.includes(-1)
-    );
-
-    // Calculate total scores for valid players
-    const playersWithTotalScores = validPlayers.map((player: any) => {
-      const totalScore = player.scores.reduce(
-        (acc: number, score: number) => acc + score,
-        0
-      );
-      return { ...player, totalScore };
-    });
-
-    // Update ineleigible players
-    const updatedIneligiblePlayers = ineligiblePlayers.map((player: any) => ({
-      ...player, // Spread existing player properties
-      rank: "-1", // Add or override rank
-      totalScore: -1, // Add or override totalScore
-    }));
-
-    // Sort valid players by champion first, then total score
-    const sortedPlayers = playersWithTotalScores.sort((a: any, b: any) => {
-      if (a.player_full_name === tournamentData.champion_full_name) return -1; // Champion on top
-      if (b.player_full_name === tournamentData.champion_full_name) return 1;
-      return a.totalScore - b.totalScore; // Sort by total score
-    });
-
-    // Function to get ordinal suffix
-    const getOrdinalSuffix = (rank: number): string => {
-      if (rank % 100 >= 11 && rank % 100 <= 13) return `${rank}th`;
-      switch (rank % 10) {
-        case 1:
-          return `${rank}st`;
-        case 2:
-          return `${rank}nd`;
-        case 3:
-          return `${rank}rd`;
-        default:
-          return `${rank}th`;
-      }
-    };
-
-    // Check if there’s a tie for 1st place
-    const firstPlaceScore = sortedPlayers[0]?.totalScore;
-    const tiedForFirst = sortedPlayers.filter(
-      (player: any) => player.totalScore === firstPlaceScore
-    );
-
-    // If there’s a tie for 1st, assign the champion explicitly
-    if (tiedForFirst.length > 1) {
-      const champion = sortedPlayers.find(
-        (player: any) =>
-          player.player_full_name === tournamentData.champion_full_name
-      );
-
-      if (champion) {
-        // Assign the champion to 1st place
-        champion.rank = "1st";
-
-        // Remove the champion from the tie group
-        const nonChampionTiedPlayers = tiedForFirst.filter(
-          (player: any) => player !== champion
-        );
-
-        // Assign remaining tied players to 2nd place
-        nonChampionTiedPlayers.forEach((player: any) => {
-          player.rank = "2nd";
-        });
-
-        // Continue ranking the rest of the players
-        let currentRank = 3; // Start from 3rd place
-        let previousScore: number | null = null;
-
-        sortedPlayers.forEach((player: any) => {
-          if (player.rank) return; // Skip already ranked players
-
-          if (player.totalScore === previousScore) {
-            player.rank = `T${currentRank}`;
-          } else {
-            player.rank = getOrdinalSuffix(currentRank);
-            currentRank++;
-          }
-
-          previousScore = player.totalScore;
-        });
-      }
-    } else {
-      // Default ranking logic if no tie for 1st
-      let currentRank = 0;
-      let previousScore: number | null = null;
-      let tieCount = 0;
-
-      sortedPlayers.forEach((player: any, index: number) => {
-        if (player.totalScore === previousScore) {
-          // If tied, increment tie count but keep the same rank
-          tieCount++;
-          player.rank = `T${currentRank}`;
-        } else {
-          // New rank
-          currentRank = index + 1;
-          tieCount = 0; // Reset tie count
-          player.rank = getOrdinalSuffix(currentRank);
-        }
-        previousScore = player.totalScore;
-
-        // Update all tied players with the same rank when ties are detected
-        if (tieCount > 0) {
-          for (let i = index - tieCount; i <= index; i++) {
-            sortedPlayers[i].rank = `T${currentRank}`;
-          }
-        }
-      });
-    }
-
-    // Update tournament data
-    tournamentData.players = sortedPlayers;
-    tournamentData.ineligible_players = updatedIneligiblePlayers;
+    const tournamentData = loadSingleOpen(filePath);
+    // const fileContents = fs.readFileSync(filePath, "utf-8");
+    // const tournamentData = JSON.parse(fileContents);
 
     const updated_stats = updatePlayerStats(
       player_stats,
@@ -160,8 +48,40 @@ export const loadOpensData = () => {
 
   overall_tourney_stats.unique_players = Object.keys(player_stats);
 
+  const live_open_data = loadSingleOpen(`${dataDir}/liveopen.json`);
+  // 👉 Write CSV: player_name,wins,average_score
+  const rows: string[] = [];
+  rows.push(["player_name", "wins", "average_score"].join(","));
+
+  // If you want to sort, you can adjust this array before writing.
+  for (const playerName of Object.keys(player_stats)) {
+    const p = player_stats[playerName] || {};
+    const wins = p.wins ?? 0;
+    const avg = p.average_score ?? "";
+    rows.push(
+      [csvEscape(playerName), csvEscape(wins), csvEscape(avg)].join(",")
+    );
+  }
+
+  // 👇 Write stats to file
+  const outputFilePath = path.join(dataDir, "stats_output.json");
+  // fs.writeFileSync(
+  //   outputFilePath,
+  //   JSON.stringify(
+  //     {
+  //       player_stats,
+  //     },
+  //     null,
+  //     2 // pretty print with indentation
+  //   ),
+  //   "utf-8"
+  // );
+
+  const csvOutputPath = path.join(dataDir, "player_summary.csv");
+  // fs.writeFileSync(csvOutputPath, rows.join("\n"), "utf-8");
   return {
     opens_data: jsonData,
+    live_open_data: live_open_data,
     stats_data: {
       player_stats: player_stats,
       overall_tourney_stats: overall_tourney_stats,

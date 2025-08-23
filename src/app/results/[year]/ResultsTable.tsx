@@ -9,14 +9,13 @@ import TableRow from "@mui/material/TableRow";
 import { formatDate } from "../../utils/formatDate";
 import PlayerTableRow from "./PlayerTableRow";
 
-export default function ResultsTable({ year_data }: any) {
+export default function ResultsTable({ year_data, isLive = false }: any) {
   const numCols = year_data.number_of_rounds + 3;
-  console.log(year_data);
   return (
     <TableContainer
       sx={{
-        border: 0.5,
-        borderColor: "primary2.main",
+        border: isLive ? 2 : 0.5,
+        borderColor: isLive ? "red" : "primary2.main",
         px: 1,
         py: 0.5,
         bgcolor: "primary2.dark",
@@ -102,36 +101,6 @@ export default function ResultsTable({ year_data }: any) {
               </Typography>
             </TableCell>
           </TableRow>
-          {/* <TableRow>
-            <TableCell colSpan={2}></TableCell>
-
-            {year_data.dates.map((date: string, index: number) => (
-              <TableCell align="center" key={index} colSpan={1}>
-                <Typography
-                  variant="caption"
-                  sx={{ fontSize: { xs: "0.6rem", sm: "0.75rem" } }}
-                >
-                  {formatDate(date)}
-                </Typography>
-              </TableCell>
-            ))}
-            <TableCell colSpan={1} />
-          </TableRow>
-          <TableRow>
-            <TableCell colSpan={2}></TableCell>
-
-            {year_data.courses.map((course: string, index: number) => (
-              <TableCell align="center" key={index} colSpan={1}>
-                <Typography
-                  variant="caption"
-                  sx={{ fontSize: { xs: "0.5rem", sm: "0.75rem" } }}
-                >
-                  {course}
-                </Typography>
-              </TableCell>
-            ))}
-            <TableCell colSpan={1} />
-          </TableRow> */}
         </TableHead>
         <TableBody>
           {year_data.players.map((player_data: any, index: number) => (

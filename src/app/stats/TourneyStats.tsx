@@ -33,7 +33,7 @@ export default function TourneyStats({
   //   "AVG Score"
   // );
 
-  const items = useOpensData();
+  const items = useOpensData().opens_data;
   const chartsData = transformDataForCharts(items, "t_avg_round_score");
   const statRankings = getStatRankings(all_player_stats, items);
 
