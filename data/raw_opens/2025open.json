@@ -1,0 +1,107 @@
+{
+  "year": "2025",
+  "champion_full_name": "Jay Pettit",
+  "number_of_rounds": 3,
+  "dates": ["8/22/2025", "8/23/2025", "8/24/2025"],
+  "courses": ["Weibring", "Weaver Ridge", "Metamora Fields"],
+  "players": [
+    {
+      "player_full_name": "Mike Maher",
+      "scores": [82, 81, 75]
+    },
+    {
+      "player_full_name": "Mike King",
+      "scores": [80, 82, 91]
+    },
+    {
+      "player_full_name": "Carrie Bottorff",
+      "scores": [87, 87, 92]
+    },
+    {
+      "player_full_name": "Chris Baum",
+      "scores": [81, 91, 82]
+    },
+    {
+      "player_full_name": "Scott Dillon",
+      "scores": [81, 86, 76]
+    },
+    {
+      "player_full_name": "Jeff King",
+      "scores": [79, 78, 83]
+    },
+    {
+      "player_full_name": "Rick Shields",
+      "scores": [95, 123, 104]
+    },
+    {
+      "player_full_name": "Mark Hasty",
+      "scores": [75, 81, 82]
+    },
+    {
+      "player_full_name": "Patrick King",
+      "scores": [79, 75, 74]
+    },
+    {
+      "player_full_name": "Jay Pettit",
+      "scores": [74, 79, 73]
+    },
+
+    {
+      "player_full_name": "Ryan Blum",
+      "scores": [78, 81, 77]
+    },
+
+    {
+      "player_full_name": "Mark Widdel",
+      "scores": [100, 98, 99]
+    },
+    {
+      "player_full_name": "Ryan Gillespie",
+      "scores": [78, 73, 77]
+    },
+    {
+      "player_full_name": "Tom Oberwetter",
+      "scores": [106, 108, 105]
+    },
+    {
+      "player_full_name": "Bryan Amidon",
+      "scores": [94, 87, 93]
+    },
+    {
+      "player_full_name": "Theo Hoby",
+      "scores": [80, 88, 78]
+    },
+    {
+      "player_full_name": "Mark Oakley",
+      "scores": [77, 75, 81]
+    },
+    {
+      "player_full_name": "Mitchell Bottorff",
+      "scores": [88, 95, 104]
+    },
+    {
+      "player_full_name": "Stu Miller",
+      "scores": [92, 94, -1]
+    },
+    {
+      "player_full_name": "Bob Vogrich",
+      "scores": [94, 88, -1]
+    },
+    {
+      "player_full_name": "Bryan Berndt",
+      "scores": [82, -1, -1]
+    },
+    {
+      "player_full_name": "John Sherman",
+      "scores": [-1, 93, -1]
+    },
+    {
+      "player_full_name": "Zach Freeman",
+      "scores": [-1, 82, -1]
+    },
+    {
+      "player_full_name": "Ted Duke",
+      "scores": [-1, 78, -1]
+    }
+  ]
+}

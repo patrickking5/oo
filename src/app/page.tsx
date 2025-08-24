@@ -3,7 +3,6 @@
 import ComponentTypography from "@/components/ComponentTypography";
 import CustomImage from "@/components/CustomImage";
 import History from "@/components/History";
-import News from "@/components/News";
 import { useHeader } from "@/context/HeaderContext";
 import { PlayCircleFilledTwoTone } from "@mui/icons-material";
 import { Box, Button, Stack } from "@mui/material";
@@ -19,11 +18,11 @@ export default function Home() {
       icon: "home",
       topChildren: (
         <Button
-          href={"/live"}
+          href={"/results/2025?opennum=39"}
           startIcon={<PlayCircleFilledTwoTone />}
           sx={{ bgcolor: "red", color: "white" }}
         >
-          LIVE RESULTS!!!
+          2025 RESULTS!!!
         </Button>
       ),
     });
@@ -51,7 +50,7 @@ export default function Home() {
           mr: { xs: 0, md: 1 },
         }}
       >
-        <News />
+        {/* <News /> */}
         <Stack
           spacing={2}
           sx={{
@@ -66,12 +65,12 @@ export default function Home() {
             borderRadius: 3,
           }}
         >
-          <ComponentTypography title={"2024 Oll Open"} />
+          <ComponentTypography title={"2025 Oll Open"} />
 
           {/* <Stack direction={"row"} spacing={0.5}> */}
           <CustomImage
             alt={"Defending Champ"}
-            year={"2024"}
+            year={"2025"}
             img_width={"60%"}
             img_metadata={home_img_metadata.champ}
           />
@@ -95,7 +94,7 @@ export default function Home() {
           {/* </Stack> */}
           <CustomImage
             alt={"Group"}
-            year={"2024"}
+            year={"2025"}
             img_width={"100%"}
             img_metadata={home_img_metadata.group}
           />

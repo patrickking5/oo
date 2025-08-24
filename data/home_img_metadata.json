@@ -1,18 +1,18 @@
 {
   "champ": {
-    "img_name": "2024champ.jpg",
-    "img_description": "2024 Champ: <strong>Jay Pettit!</strong>",
+    "img_name": "2025champ.png",
+    "img_description": "2025 Champ: <strong>Jay Pettit!</strong>",
     "img_people": ["Jay Pettit", "Mike King"],
     "img_type": "champ",
-    "img_date": "7/14/2024",
-    "img_location": "Weaver Ridge"
+    "img_date": "8/24/2025",
+    "img_location": "Metamora Fields"
   },
   "group": {
-    "img_name": "2024group.jpg",
-    "img_description": "<strong>2024 Group Photo</strong> <br/> Back: Cam, Moose, Fifi, Bryan, Bloom, World, Oak <br/> Front: Oll, Mig, O, Rae, Jay, Duck, Obes, BB, Mitch",
+    "img_name": "2025group.png",
+    "img_description": "<strong>2025 Group Photo</strong> <br/> <strong>Back:</strong> Jay, RG3, World, Fifi, Bloom, Woody, Zach, Moose, Bryan, Bob, Stu, Obes, Ted, Oll <br/> <strong>Front:</strong> O, Rae, Oak, Cam, Mig, Mitch, Butsy, Duck",
     "img_people": ["Group"],
     "img_type": "group",
-    "img_date": "7/13/2024",
-    "img_location": "Metamora Fields"
+    "img_date": "8/23/2025",
+    "img_location": "Weaver Ridge"
   }
 }
