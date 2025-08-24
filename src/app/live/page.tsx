@@ -12,7 +12,7 @@ export default function Live() {
 
   useEffect(() => {
     setHeaderContent({
-      title: "Live Leaderboard",
+      title: "2025 Leaderboard",
       icon: "live",
       topChildren: null,
     });

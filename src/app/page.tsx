@@ -18,7 +18,7 @@ export default function Home() {
       icon: "home",
       topChildren: (
         <Button
-          href={"/results/2025?opennum=39"}
+          href={"/live"}
           startIcon={<PlayCircleFilledTwoTone />}
           sx={{ bgcolor: "red", color: "white" }}
         >
