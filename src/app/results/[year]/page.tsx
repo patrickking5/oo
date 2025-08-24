@@ -187,8 +187,8 @@ export default function YearResults() {
     });
   }, []);
 
-  console.log("YEAR DATA!");
-  console.log(year_data);
+  // console.log("YEAR DATA!");
+  // console.log(year_data);
   return (
     <Box
       sx={{
