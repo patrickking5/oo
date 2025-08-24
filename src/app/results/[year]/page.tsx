@@ -154,7 +154,7 @@ export default function YearResults() {
               />
 
               <Button
-                disabled={parseInt(year_data.year) + 1 === 2025}
+                disabled={parseInt(year_data.year) + 1 === 2026}
                 onClick={() =>
                   router.push(
                     `/results/${parseInt(year_data.year) + 1}?opennum=${
