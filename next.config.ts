@@ -6,11 +6,6 @@ const withPWA = require("next-pwa")({
   disable: process.env.NODE_ENV === "development", // disable PWA in dev
 });
 
-const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-  // add any other Next.js config here
-};
+const nextConfig = {};
 
 module.exports = withPWA(nextConfig);
