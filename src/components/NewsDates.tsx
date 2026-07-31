@@ -92,26 +92,26 @@ export default function NewsDates() {
           fontWeight: 700,
         }}
       >
-        2025 Oll Open Dates!
+        2026 Oll Open Dates!
       </Typography>
       <Stack direction={"column"} spacing={1} justifyContent={"center"}>
         <RoundBox
           roundNum={1}
-          roundDate="Aug 22nd"
-          roundCourse="ISU - Weibring"
-          roundTeeTimes="11 AM - Noon"
+          roundDate="Fri, Aug 7"
+          roundCourse="ISU"
+          roundTeeTimes="11:00 AM - 12:00 PM"
         />
         <RoundBox
           roundNum={2}
-          roundDate="Aug 23rd"
-          roundCourse="Weaver Ridge"
-          roundTeeTimes="9:30 - 10:30 AM"
+          roundDate="Sat, Aug 8"
+          roundCourse="Metamora Fields"
+          roundTeeTimes="9:06 - 10:00 AM"
         />
         <RoundBox
           roundNum={3}
-          roundDate="Aug 24th"
-          roundCourse="Metamora Fields"
-          roundTeeTimes="9 - 10 AM"
+          roundDate="Sun, Aug 9"
+          roundCourse="Weaver Ridge"
+          roundTeeTimes="8:00 - 8:50 AM"
         />
       </Stack>
     </Box>

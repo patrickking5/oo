@@ -3,6 +3,7 @@
 import ComponentTypography from "@/components/ComponentTypography";
 import CustomImage from "@/components/CustomImage";
 import History from "@/components/History";
+import News from "@/components/News";
 import { useHeader } from "@/context/HeaderContext";
 import { PlayCircleFilledTwoTone } from "@mui/icons-material";
 import { Box, Button, Stack } from "@mui/material";
@@ -50,7 +51,7 @@ export default function Home() {
           mr: { xs: 0, md: 1 },
         }}
       >
-        {/* <News /> */}
+        <News />
         <Stack
           spacing={2}
           sx={{

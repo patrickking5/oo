@@ -1,8 +1,8 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import ComponentTypography from "./ComponentTypography";
 import NewsDates from "./NewsDates";
 import NewsRules from "./NewsRules";
-import RSVPInfo from "./RSVPInfo";
+import NewsWagering from "./NewsWagering";
 
 export default function News() {
   return (
@@ -18,9 +18,27 @@ export default function News() {
     >
       <ComponentTypography title={"News"} />
 
+      <Box
+        sx={{
+          border: 1.5,
+          borderRadius: 3,
+          borderColor: "primary2.main",
+          p: 1,
+          mb: 1,
+        }}
+      >
+        <Typography variant="body1" sx={{ fontWeight: 700 }}>
+          Welcome to the 40th Annual Oll Open!
+        </Typography>
+        <Typography variant="body2" sx={{ color: "primary2.light", mt: 0.5 }}>
+          Thank you to everyone who RSVP&apos;d. Please review the information
+          from the boxes below.
+        </Typography>
+      </Box>
+
       <NewsDates />
-      <RSVPInfo />
       <NewsRules />
+      <NewsWagering />
     </Box>
   );
 }
