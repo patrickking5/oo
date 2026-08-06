@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import courseInfo from "../data/course_info.json";
+import liveOpenData from "../data/liveopen.json";
 import nameBios from "../data/name_bios.json";
 import legacyStats from "../data/stats_output.json";
 import historyHtml from "./content/history.html?raw";
@@ -11,7 +12,10 @@ const openModules = import.meta.glob("../data/raw_opens/*.json", {
   eager: true,
   import: "default",
 });
-const playerNameAliases = { "Cary Bottorff": "Cary Bottorff" };
+const playerNameAliases = {
+  "Cary Bottorff": "Cary Bottorff",
+  "Carry Bottorff": "Cary Bottorff",
+};
 const canonicalName = (name) => playerNameAliases[name] || name;
 const nicknameFor = (name) =>
   nameBios[canonicalName(name)]?.nicknames?.[0] || "";
@@ -25,6 +29,14 @@ const opens = Object.values(openModules)
     })),
   }))
   .sort((a, b) => Number(b.year) - Number(a.year));
+const liveOpen = {
+  ...liveOpenData,
+  _live: true,
+  players: (liveOpenData.players || []).map((player) => ({
+    ...player,
+    player_full_name: canonicalName(player.player_full_name),
+  })),
+};
 
 const icons = {
   Home: "M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9 20v-6h6v6",
@@ -38,6 +50,7 @@ const icons = {
   Chevron: "m9 18 6-6-6-6",
   Arrow: "M5 12h14M13 6l6 6-6 6",
   Close: "M18 6 6 18M6 6l12 12",
+  Play: "m8 5 11 7-11 7z",
 };
 
 function Icon({ name, size = 22 }) {
@@ -85,6 +98,12 @@ const rankAt = (board, index, champion, numberOfRounds) => {
   const tied = board.filter((p) => totalFor(p) === total);
   const first = board.findIndex((p) => totalFor(p) === total) + 1;
   return tied.length > 1 ? `T${first}` : ordinal(index + 1);
+};
+const podiumClassFor = (rank) => {
+  if (rank === "1st" || rank === "T1") return "podium-first";
+  if (rank === "2nd" || rank === "T2") return "podium-second";
+  if (rank === "3rd" || rank === "T3") return "podium-third";
+  return "";
 };
 const formatOpenDates = (dates = []) => {
   if (!dates.length) return "Tournament dates unavailable";
@@ -388,6 +407,7 @@ function App() {
       <Header
         tab={tab}
         onNavigate={navigate}
+        onLive={() => setSelectedOpen(liveOpen)}
         statsMode={statsMode}
         setStatsMode={setStatsMode}
         homeOverlay={tab === "Home" && !selectedOpen}
@@ -399,6 +419,7 @@ function App() {
             open={selectedOpen}
             onBack={() => setSelectedOpen(null)}
             onSelect={setSelectedOpen}
+            live={selectedOpen._live === true}
           />
         ) : (
           pages[tab]
@@ -445,6 +466,7 @@ function App() {
 function Header({
   tab,
   onNavigate,
+  onLive,
   statsMode,
   setStatsMode,
   homeOverlay,
@@ -470,6 +492,14 @@ function Header({
           alt="Oll Open"
         />
       </button>
+      {tab !== "Stats" && (
+        <button className="live-leaderboard-link" onClick={onLive}>
+          <span className="live-play-icon">
+            <Icon name="Play" size={11} />
+          </span>
+          <span>Live Leaderboard</span>
+        </button>
+      )}
       {tab === "Stats" && (
         <div
           className="header-stats-mode"
@@ -678,11 +708,17 @@ function Home({ onNavigate, onOpen }) {
 }
 
 function PlayerProfileCard({ p, index = 0, onShowStats, preview = false }) {
+  const displayNickname = p.nickname || p.name.split(" ")[0];
+  const nicknameLength = Math.max(1, displayNickname.length);
+  const nicknameSizing = {
+    "--nickname-mobile-size": `${Math.max(13, Math.min(23, Math.floor(82 / (nicknameLength * 0.62))))}px`,
+    "--nickname-preview-size": `${Math.max(11, Math.min(22, Math.floor(64 / (nicknameLength * 0.62))))}px`,
+  };
   return (
     <article className={`player-card ${preview ? "preview-player-card" : ""}`}>
       <div className={`avatar avatar-${index % 6}`}>
-        <span className="player-top-name">
-          {p.nickname || p.name.split(" ")[0]}
+        <span className="player-top-name" style={nicknameSizing}>
+          {displayNickname}
         </span>
       </div>
       <div className="player-card-body">
@@ -881,42 +917,71 @@ function Opens({ selected, onSelect }) {
   );
 }
 
-function OpenDetail({ open, onBack, onSelect }) {
-  const board = leaderboard(open);
+function OpenDetail({ open, onBack, onSelect, live = false }) {
+  const liveEligible = (player) =>
+    Array.from(
+      { length: Number(open.number_of_rounds) },
+      (_, index) => player.scores?.[index] !== -1,
+    ).every(Boolean);
+  const board = live
+    ? [...(open.players || [])].sort((a, b) => {
+        const eligibleA = liveEligible(a);
+        const eligibleB = liveEligible(b);
+        if (eligibleA !== eligibleB) return eligibleB - eligibleA;
+        if (totalFor(a) !== totalFor(b))
+          return totalFor(a) - totalFor(b);
+        return a.player_full_name.localeCompare(b.player_full_name);
+      })
+    : leaderboard(open);
   const scores = board.flatMap((p) => validScores(p.scores));
-  const hasScoreData = scores.length > 0;
+  const hasScoreData = live || scores.length > 0;
   const idx = opens.findIndex((o) => o.year === open.year);
+  const liveRankAt = (player, index) => {
+    if (!liveEligible(player)) return "";
+    const total = totalFor(player);
+    const tied = board.filter(
+      (entry) => liveEligible(entry) && totalFor(entry) === total,
+    );
+    const first = board.findIndex(
+      (entry) => liveEligible(entry) && totalFor(entry) === total,
+    );
+    return tied.length > 1 ? `T${first + 1}` : ordinal(index + 1);
+  };
   const scoreColumns = {
     gridTemplateColumns: `55px minmax(180px, 1fr) repeat(${Number(open.number_of_rounds)}, 64px) 75px`,
     "--rounds": Number(open.number_of_rounds),
   };
   return (
-    <div className="page-section page-top open-page">
+    <div className={`page-section page-top open-page ${live ? "live-open-page" : ""}`}>
       <div className="open-sticky-header">
         <div className="open-masthead">
           <button className="back" onClick={onBack}>
-            ← All Opens
+            ← {live ? "Back" : "All Opens"}
           </button>
-          <h1>{open.year} Oll Open</h1>
+          <h1>{live ? "Live Leaderboard" : `${open.year} Oll Open`}</h1>
           <div className="open-detail-meta">
-            <Kicker>{ordinal(Number(open.year) - 1986)} Annual</Kicker>
+            <Kicker>
+              {live ? "LIVE · SCOREBOARD" : `${ordinal(Number(open.year) - 1986)} Annual`}
+            </Kicker>
             <p>{formatOpenDates(open.dates)}</p>
           </div>
         </div>
-        <div className="year-nav open-year-nav">
-          <button
-            disabled={!opens[idx + 1]}
-            onClick={() => onSelect(opens[idx + 1])}
-          >
-            ← {opens[idx + 1]?.year}
-          </button>
-          <button
-            disabled={!opens[idx - 1]}
-            onClick={() => onSelect(opens[idx - 1])}
-          >
-            {opens[idx - 1]?.year} →
-          </button>
-        </div>
+        {!live && (
+          <div className="year-nav open-year-nav">
+            <button
+              disabled={!opens[idx + 1]}
+              onClick={() => onSelect(opens[idx + 1])}
+            >
+              ← {opens[idx + 1]?.year}
+            </button>
+            <button
+              disabled={!opens[idx - 1]}
+              onClick={() => onSelect(opens[idx - 1])}
+            >
+              {opens[idx - 1]?.year} →
+            </button>
+          </div>
+        )}
       </div>
       {!hasScoreData ? (
         <section className="open-no-stats" aria-labelledby="no-stats-title">
@@ -946,7 +1011,7 @@ function OpenDetail({ open, onBack, onSelect }) {
             <summary className="leader-title">
               <span className="leader-title-copy">
                 <small>{ordinal(Number(open.year) - 1986)} ANNUAL</small>
-                <h2>{open.year} Leaderboard</h2>
+                <h2>{open.year} {live ? "Live" : ""} Leaderboard</h2>
               </span>
               <span className="leader-rounds" aria-label="Rounds and courses">
                 {Array.from(
@@ -981,20 +1046,24 @@ function OpenDetail({ open, onBack, onSelect }) {
                 )}
                 <span>TOTAL</span>
               </div>
-              {board.map((p, i) => (
-                <div
-                  className={`score-row ${p.player_full_name === open.champion_full_name ? "winner" : ""}`}
-                  key={p.player_full_name}
-                  style={scoreColumns}
-                >
-                  <span>
-                    {rankAt(
+              {board.map((p, i) => {
+                const position = live
+                  ? liveRankAt(p, i)
+                  : rankAt(
                       board,
                       i,
                       open.champion_full_name,
                       open.number_of_rounds,
-                    )}
-                  </span>
+                    );
+                const podiumClass =
+                  !live || totalFor(p) > 0 ? podiumClassFor(position) : "";
+                return (
+                  <div
+                    className={`score-row ${!live && p.player_full_name === open.champion_full_name ? "winner" : ""} ${live && !liveEligible(p) ? "live-ineligible" : ""} ${podiumClass}`}
+                    key={p.player_full_name}
+                    style={scoreColumns}
+                  >
+                    <span>{position}</span>
                   <span className="leader-player-name">
                     <b>
                       <span data-player={p.player_full_name}>
@@ -1011,19 +1080,28 @@ function OpenDetail({ open, onBack, onSelect }) {
                     { length: Number(open.number_of_rounds) },
                     (_, j) => (
                       <span data-label={`R${j + 1}`} key={j}>
-                        {p.scores[j] > 0 ? p.scores[j] : "—"}
+                        {p.scores[j] > 0
+                          ? p.scores[j]
+                          : live && p.scores[j] === -1
+                            ? "—"
+                            : live && p.scores[j] === 0
+                              ? "0"
+                              : "—"}
                       </span>
                     ),
                   )}
                   <span data-label="Total">
                     <b>
-                      {scoreCount(p) === Number(open.number_of_rounds)
+                      {live
                         ? totalFor(p)
-                        : "—"}
+                        : scoreCount(p) === Number(open.number_of_rounds)
+                          ? totalFor(p)
+                          : "—"}
                     </b>
                   </span>
-                </div>
-              ))}
+                  </div>
+                );
+              })}
             </div>
           </details>
           <aside className="field-card">
@@ -1655,7 +1733,7 @@ function Stats({ focusPlayer = null, mode, setMode }) {
     average: [
       "Lowest career average",
       [...playerStats]
-        .filter((p) => p.rounds >= 5)
+        .filter((p) => p.rounds >= 10)
         .sort((a, b) => a.average - b.average),
       (p) => p.average.toFixed(1),
       (p) => `${p.rounds} rounds`,
@@ -1685,6 +1763,34 @@ function Stats({ focusPlayer = null, mode, setMode }) {
       (p) => `${p.rounds} rounds`,
       "Opens",
       (p) => p.opens,
+    ],
+    podiums: [
+      "Most podium finishes",
+      [...playerStats]
+        .filter((p) => p.podiums > 0)
+        .sort((a, b) => b.podiums - a.podiums || b.winCount - a.winCount),
+      (p) => p.podiums,
+      (p) => (
+        <span className="podium-ranking-detail">
+          {p.winCount > 0 && (
+            <span className="podium-gold-text">
+              {p.winCount}× {p.winCount === 1 ? "W" : "Ws"}
+            </span>
+          )}
+          {p.seconds > 0 && (
+            <span className="podium-silver-text">
+              {p.seconds}× {p.seconds === 1 ? "2nd" : "2nds"}
+            </span>
+          )}
+          {p.thirds > 0 && (
+            <span className="podium-bronze-text">
+              {p.thirds}× {p.thirds === 1 ? "3rd" : "3rds"}
+            </span>
+          )}
+        </span>
+      ),
+      "Podiums",
+      (p) => p.podiums,
     ],
     low: [
       "Lowest individual rounds",
@@ -1985,7 +2091,7 @@ function Stats({ focusPlayer = null, mode, setMode }) {
               </div>
               {activeRanking[1].slice(0, 10).map((p, i) => (
                 <div
-                  className={`rank-row ${ranking === "margin" ? "margin-ranking-row" : ""}`}
+                  className={`rank-row ${ranking}-ranking-row`}
                   key={`${p.name}-${ranking}-${i}`}
                 >
                   <span>
