@@ -1,50 +1,62 @@
 {
   "Weibring": {
     "par": 71,
-    "short_name": "ISU"
+    "short_name": "ISU",
+    "State": "IL"
   },
   "Weaver Ridge": {
     "par": 72,
-    "short_name": "Weaver"
+    "short_name": "Weaver",
+    "State": "IL"
   },
   "Metamora Fields": {
     "par": 71,
-    "short_name": "MF"
+    "short_name": "MF",
+    "State": "IL"
   },
   "Prarie Vista": {
     "par": 72,
-    "short_name": "PV"
+    "short_name": "PV",
+    "State": "IL"
   },
   "Lick Creek": {
     "par": 72,
-    "short_name": "Lick"
+    "short_name": "Lick",
+    "State": "IL"
   },
   "Waldorf Astoria": {
     "par": 72,
-    "short_name": "W. Astoria"
+    "short_name": "W. Astoria",
+    "State": "FL"
   },
   "Orange County": {
     "par": 72,
-    "short_name": "O. County"
+    "short_name": "O. County",
+    "State": "FL"
   },
   "Golden Bear": {
     "par": 72,
-    "short_name": "G. Bear"
+    "short_name": "G. Bear",
+    "State": "FL"
   },
   "The Rail": {
     "par": 72,
-    "short_name": "Rail"
+    "short_name": "Rail",
+    "State": "IL"
   },
   "Southern Dunes": {
     "par": 72,
-    "short_name": "S. Dunes"
+    "short_name": "S. Dunes",
+    "State": "FL"
   },
   "Grand Cypress": {
     "par": 72,
-    "short_name": "G Cypress"
+    "short_name": "G Cypress",
+    "State": "FL"
   },
   "The Elks": {
     "par": 72,
-    "short_name": "Elks"
+    "short_name": "Elks",
+    "State": "IL"
   }
 }

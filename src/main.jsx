@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import nameBios from "../data/name_bios.json";
 import courseInfo from "../data/course_info.json";
+import nameBios from "../data/name_bios.json";
 import legacyStats from "../data/stats_output.json";
 import historyHtml from "./content/history.html?raw";
 import GalleryPage from "./pages/GalleryPage.jsx";
@@ -108,6 +108,14 @@ const formatOpenDates = (dates = []) => {
       }),
     )
     .join(" · ");
+};
+const formatRoundDate = (date) => {
+  if (!date) return "Date unavailable";
+  const [month, day, year] = date.split("/").map(Number);
+  return new Date(year, month - 1, day, 12).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
 };
 
 const allNames = Object.keys(nameBios).sort();
@@ -281,7 +289,8 @@ function App() {
   }, []);
   useEffect(() => {
     const isHomeHero = tab === "Home" && !selectedOpen;
-    const updateHeader = () => setHomeHeaderAtTop(isHomeHero && window.scrollY < 24);
+    const updateHeader = () =>
+      setHomeHeaderAtTop(isHomeHero && window.scrollY < 24);
     updateHeader();
     window.addEventListener("scroll", updateHeader, { passive: true });
     return () => window.removeEventListener("scroll", updateHeader);
@@ -289,7 +298,12 @@ function App() {
   useEffect(() => {
     const themeColor = document.querySelector('meta[name="theme-color"]');
     if (themeColor)
-      themeColor.setAttribute("content", tab === "Home" && !selectedOpen && homeHeaderAtTop ? "#153b2b" : "#f4f1e9");
+      themeColor.setAttribute(
+        "content",
+        tab === "Home" && !selectedOpen && homeHeaderAtTop
+          ? "#153b2b"
+          : "#f4f1e9",
+      );
   }, [homeHeaderAtTop, tab, selectedOpen]);
   const navigate = (next) => {
     setSelectedOpen(null);
@@ -428,10 +442,19 @@ function App() {
   );
 }
 
-function Header({ tab, onNavigate, statsMode, setStatsMode, homeOverlay, homeHeaderAtTop }) {
+function Header({
+  tab,
+  onNavigate,
+  statsMode,
+  setStatsMode,
+  homeOverlay,
+  homeHeaderAtTop,
+}) {
   const overHomeHero = homeOverlay && homeHeaderAtTop;
   return (
-    <header className={`site-header ${homeOverlay ? "home-hero-header" : ""} ${overHomeHero ? "over-hero" : ""}`}>
+    <header
+      className={`site-header ${homeOverlay ? "home-hero-header" : ""} ${overHomeHero ? "over-hero" : ""}`}
+    >
       <button
         className="brand"
         onClick={() => onNavigate("Home")}
@@ -439,7 +462,11 @@ function Header({ tab, onNavigate, statsMode, setStatsMode, homeOverlay, homeHea
       >
         <img
           className="brand-logo"
-          src={overHomeHero ? "/logos/oll-open-light-current.png" : "/logos/oll-open-current.png"}
+          src={
+            overHomeHero
+              ? "/logos/oll-open-light-current.png"
+              : "/logos/oll-open-current.png"
+          }
           alt="Oll Open"
         />
       </button>
@@ -871,12 +898,10 @@ function OpenDetail({ open, onBack, onSelect }) {
             ← All Opens
           </button>
           <h1>{open.year} Oll Open</h1>
-          <span className="masthead-spacer" aria-hidden="true" />
-        </div>
-        <div className="open-detail-meta">
-          <Kicker>{ordinal(Number(open.year) - 1986)} Annual</Kicker>
-          <span aria-hidden="true">•</span>
-          <p>{formatOpenDates(open.dates)}</p>
+          <div className="open-detail-meta">
+            <Kicker>{ordinal(Number(open.year) - 1986)} Annual</Kicker>
+            <p>{formatOpenDates(open.dates)}</p>
+          </div>
         </div>
         <div className="year-nav open-year-nav">
           <button
@@ -919,7 +944,27 @@ function OpenDetail({ open, onBack, onSelect }) {
         <div className="detail-stack">
           <details className="leader-card leaderboard-disclosure" open>
             <summary className="leader-title">
-              <h2>{open.year} Leaderboard</h2>
+              <span className="leader-title-copy">
+                <small>{ordinal(Number(open.year) - 1986)} ANNUAL</small>
+                <h2>{open.year} Leaderboard</h2>
+              </span>
+              <span className="leader-rounds" aria-label="Rounds and courses">
+                {Array.from(
+                  { length: Number(open.number_of_rounds) },
+                  (_, index) => (
+                    <span className="leader-round" key={index}>
+                      <small>
+                        R{index + 1} · {formatRoundDate(open.dates?.[index])}
+                      </small>
+                      <b title={open.courses?.[index]}>
+                        {courseInfo[open.courses?.[index]]?.short_name ||
+                          open.courses?.[index] ||
+                          "Course unavailable"}
+                      </b>
+                    </span>
+                  ),
+                )}
+              </span>
               <span className="leaderboard-toggle" aria-hidden="true">
                 +
               </span>
@@ -1116,6 +1161,7 @@ function LineChart({
             return point
               ? {
                   name: s.name,
+                  nickname: s.nickname,
                   value: point[valueKey],
                   color: chartColors[i % chartColors.length],
                 }
@@ -1271,8 +1317,9 @@ function LineChart({
           {activeYearData.map((entry) => (
             <span className="year-tooltip-row" key={entry.name}>
               <i style={{ background: entry.color }} />
-              <em>
+              <em className="chart-tooltip-player">
                 <span data-player={entry.name}>{entry.name}</span>
+                {entry.nickname && <small>{entry.nickname}</small>}
               </em>
               <strong>{Number(entry.value).toFixed(1)}</strong>
             </span>
@@ -1283,7 +1330,10 @@ function LineChart({
         {series.map((s, i) => (
           <span key={s.name}>
             <i style={{ background: chartColors[i % chartColors.length] }} />
-            {s.name}
+            <span className="chart-legend-player">
+              <b>{s.name}</b>
+              {s.nickname && <small>{s.nickname}</small>}
+            </span>
           </span>
         ))}
       </div>
@@ -1292,45 +1342,126 @@ function LineChart({
 }
 
 function CourseComparison({ players }) {
-  const courses = [...new Set(players.flatMap((p) => Object.keys(p.courses)))];
+  const [showFlorida, setShowFlorida] = useState(false);
+  const allCourses = [
+    ...new Set(players.flatMap((p) => Object.keys(p.courses))),
+  ];
+  const courses = [
+    ...allCourses.filter((course) => courseInfo[course]?.State !== "FL"),
+    ...(showFlorida
+      ? allCourses.filter((course) => courseInfo[course]?.State === "FL")
+      : []),
+  ];
+  const floridaCount = allCourses.filter(
+    (course) => courseInfo[course]?.State === "FL",
+  ).length;
+  return (
+    <div className="course-comparison-wrap">
+      <div
+        className="course-comparison"
+        role="region"
+        aria-label="Average scores by course"
+        tabIndex="0"
+      >
+        {courses.map((course) => (
+          <div className="course-stat" key={course}>
+            <div>
+              <b>{courseInfo[course]?.short_name || course}</b>
+              <small>{course}</small>
+            </div>
+            <div>
+              {players.map((p, i) => {
+                const s = p.courses[course];
+                if (!s) return null;
+                return (
+                  <div className="course-player" key={p.name}>
+                    <span style={{ color: chartColors[i] }}>
+                      <span data-player={p.name}>{p.nickname}</span>
+                    </span>
+                    <div>
+                      <i
+                        style={{
+                          width: `${Math.max(8, Math.min(100, (s.avg - 60) * 2.5))}%`,
+                          background: chartColors[i],
+                        }}
+                      />
+                    </div>
+                    <b>{Number(s.avg).toFixed(1)}</b>
+                    <small>{s.num_rounds} rds</small>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+      {floridaCount > 0 && (
+        <label className="florida-course-toggle">
+          <input
+            type="checkbox"
+            checked={showFlorida}
+            onChange={(event) => setShowFlorida(event.target.checked)}
+          />
+          <span>Show FL courses ({floridaCount})</span>
+        </label>
+      )}
+    </div>
+  );
+}
+
+function TournamentCourseComparison({ courses }) {
+  const [showFlorida, setShowFlorida] = useState(false);
+  const floridaCourses = courses.filter(
+    (course) => courseInfo[course.name]?.State === "FL",
+  );
+  const visibleCourses = [
+    ...courses.filter((course) => courseInfo[course.name]?.State !== "FL"),
+    ...(showFlorida ? floridaCourses : []),
+  ];
+  const maxAverage = Math.max(
+    ...visibleCourses.map((course) => course.average),
+  );
+  const minAverage = Math.min(
+    ...visibleCourses.map((course) => course.average),
+  );
   return (
     <div
-      className="course-comparison"
+      className="tournament-course-comparison"
       role="region"
-      aria-label="Average scores by course"
-      tabIndex="0"
+      aria-label="Field average and Oll Open appearances by course"
     >
-      {courses.map((course) => (
-        <div className="course-stat" key={course}>
-          <div>
-            <b>{courseInfo[course]?.short_name || course}</b>
-            <small>{course}</small>
-          </div>
-          <div>
-            {players.map((p, i) => {
-              const s = p.courses[course];
-              if (!s) return null;
-              return (
-                <div className="course-player" key={p.name}>
-                  <span style={{ color: chartColors[i] }}>
-                    <span data-player={p.name}>{p.nickname}</span>
-                  </span>
-                  <div>
-                    <i
-                      style={{
-                        width: `${Math.max(8, Math.min(100, (s.avg - 60) * 2.5))}%`,
-                        background: chartColors[i],
-                      }}
-                    />
-                  </div>
-                  <b>{Number(s.avg).toFixed(1)}</b>
-                  <small>{s.num_rounds} rds</small>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      ))}
+      <div className="tournament-course-chart">
+        {visibleCourses.map((course) => {
+          const range = Math.max(1, maxAverage - minAverage);
+          const barWidth = 45 + ((course.average - minAverage) / range) * 55;
+          return (
+            <div className="tournament-course-bar" key={course.name}>
+              <span className="tournament-course-label">
+                <b>{courseInfo[course.name]?.short_name || course.name}</b>
+                <small>{course.appearances}× played</small>
+              </span>
+              <div className="tournament-course-track">
+                <i style={{ width: `${barWidth}%` }} />
+              </div>
+              <span className="tournament-course-value">
+                <b>{course.average.toFixed(1)}</b>
+                <small>(low {course.low})</small>
+              </span>
+            </div>
+          );
+        })}
+      </div>
+      <label className="florida-course-toggle tournament-florida-toggle">
+        <input
+          type="checkbox"
+          checked={showFlorida}
+          onChange={(event) => setShowFlorida(event.target.checked)}
+        />
+        <span>Show FL courses ({floridaCourses.length})</span>
+      </label>
+      <p className="tournament-course-note">
+        Field average · ordered lowest to highest
+      </p>
     </div>
   );
 }
@@ -1422,6 +1553,7 @@ function Stats({ focusPlayer = null, mode, setMode }) {
   const [ranking, setRanking] = useState("average");
   const [commonOnly, setCommonOnly] = useState(false);
   const [playerChartView, setPlayerChartView] = useState("year");
+  const [tournamentChartView, setTournamentChartView] = useState("year");
   const compared = selected
     .map((name) => playerStats.find((p) => p.name === name))
     .filter(Boolean);
@@ -1449,6 +1581,39 @@ function Stats({ focusPlayer = null, mode, setMode }) {
       };
     })
     .filter((p) => p.value);
+  const tournamentCourses = Object.values(
+    opens.reduce((courses, open) => {
+      (open.courses || []).forEach((course, roundIndex) => {
+        const scores = (open.players || [])
+          .map((player) => player.scores?.[roundIndex])
+          .filter((score) => score > 0);
+        if (!scores.length) return;
+        const current = courses[course] || {
+          name: course,
+          appearances: 0,
+          total: 0,
+          rounds: 0,
+          low: Infinity,
+        };
+        current.appearances += 1;
+        current.total += scores.reduce((sum, score) => sum + score, 0);
+        current.rounds += scores.length;
+        current.low = Math.min(current.low, ...scores);
+        courses[course] = current;
+      });
+      return courses;
+    }, {}),
+  )
+    .map((course) => ({
+      ...course,
+      average: course.total / course.rounds,
+    }))
+    .sort(
+      (a, b) =>
+        a.average - b.average ||
+        b.appearances - a.appearances ||
+        a.name.localeCompare(b.name),
+    );
   const lowestRounds = playerStats
     .flatMap((p) =>
       p.yearly.flatMap((result) =>
@@ -1463,6 +1628,29 @@ function Stats({ focusPlayer = null, mode, setMode }) {
       ),
     )
     .sort((a, b) => a.roundScore - b.roundScore);
+  const victoryMargins = opens
+    .map((open) => {
+      const board = leaderboard(open).filter(
+        (player) => scoreCount(player) === Number(open.number_of_rounds),
+      );
+      const champion = board.find(
+        (player) => player.player_full_name === open.champion_full_name,
+      );
+      const runnerUp = board.find(
+        (player) => player.player_full_name !== open.champion_full_name,
+      );
+      if (!champion || !runnerUp) return null;
+      return {
+        name: open.champion_full_name,
+        nickname: nicknameFor(open.champion_full_name),
+        year: open.year,
+        margin: totalFor(runnerUp) - totalFor(champion),
+        scores: validScores(champion.scores),
+        total: totalFor(champion),
+      };
+    })
+    .filter((result) => result && result.margin >= 0)
+    .sort((a, b) => b.margin - a.margin || Number(b.year) - Number(a.year));
   const rankingOptions = {
     average: [
       "Lowest career average",
@@ -1470,15 +1658,17 @@ function Stats({ focusPlayer = null, mode, setMode }) {
         .filter((p) => p.rounds >= 5)
         .sort((a, b) => a.average - b.average),
       (p) => p.average.toFixed(1),
-      (p) => `${p.rounds} recorded rounds`,
+      (p) => `${p.rounds} rounds`,
       "AVG Score",
+      (p) => p.average.toFixed(1),
     ],
     under80: [
       "Most rounds under 80",
       [...playerStats].sort((a, b) => b.under80 - a.under80),
       (p) => p.under80,
-      (p) => `${p.rounds} recorded rounds`,
+      (p) => `${p.rounds} rounds`,
       "RDs < 80",
+      (p) => p.under80,
     ],
     strokes: [
       "Most total strokes",
@@ -1486,6 +1676,7 @@ function Stats({ focusPlayer = null, mode, setMode }) {
       (p) => p.strokes.toLocaleString(),
       (p) => `${p.opens} Opens`,
       "Strokes",
+      (p) => p.strokes,
     ],
     opens: [
       "Most Opens played",
@@ -1493,6 +1684,7 @@ function Stats({ focusPlayer = null, mode, setMode }) {
       (p) => p.opens,
       (p) => `${p.rounds} rounds`,
       "Opens",
+      (p) => p.opens,
     ],
     low: [
       "Lowest individual rounds",
@@ -1501,9 +1693,24 @@ function Stats({ focusPlayer = null, mode, setMode }) {
       (p) =>
         `${courseInfo[p.roundCourse]?.short_name || p.roundCourse} · ${p.roundDate}`,
       "Low RDs",
+      (p) => p.roundScore,
+    ],
+    margin: [
+      "Highest margins of victory",
+      victoryMargins,
+      (p) => p.margin,
+      (p) => `${p.year} · ${p.scores.join("–")} = ${p.total}`,
+      "Margin",
+      (p) => p.margin,
     ],
   };
   const activeRanking = rankingOptions[ranking];
+  const rankingPosition = (items, index, valueFor) => {
+    const value = valueFor(items[index]);
+    const first = items.findIndex((item) => valueFor(item) === value);
+    const tied = items.filter((item) => valueFor(item) === value).length > 1;
+    return tied ? `T${first + 1}` : String(index + 1).padStart(2, "0");
+  };
   const toggle = (name) =>
     setSelected((s) =>
       s.includes(name)
@@ -1699,14 +1906,39 @@ function Stats({ focusPlayer = null, mode, setMode }) {
             <section className="panel trend-panel">
               <div className="panel-head">
                 <div>
-                  <Kicker>39 YEARS</Kicker>
-                  <h3>Average score by year</h3>
+                  <Kicker>
+                    {tournamentChartView === "year"
+                      ? `${opens.length} YEARS`
+                      : `${tournamentCourses.length} COURSES`}
+                  </Kicker>
+                  <h3>
+                    {tournamentChartView === "year"
+                      ? "Average score by year"
+                      : "Average score by course"}
+                  </h3>
                 </div>
-                <Pill>ALL PLAYERS</Pill>
+                <div className="ranking-tabs performance-toggle tournament-performance-toggle">
+                  <button
+                    className={tournamentChartView === "year" ? "active" : ""}
+                    onClick={() => setTournamentChartView("year")}
+                  >
+                    By year
+                  </button>
+                  <button
+                    className={tournamentChartView === "course" ? "active" : ""}
+                    onClick={() => setTournamentChartView("course")}
+                  >
+                    By course
+                  </button>
+                </div>
               </div>
-              <LineChart
-                series={[{ name: "Field average", points: tournamentTrend }]}
-              />
+              {tournamentChartView === "year" ? (
+                <LineChart
+                  series={[{ name: "Field average", points: tournamentTrend }]}
+                />
+              ) : (
+                <TournamentCourseComparison courses={tournamentCourses} />
+              )}
             </section>
             <section className="panel">
               <div className="panel-head">
@@ -1752,8 +1984,13 @@ function Stats({ focusPlayer = null, mode, setMode }) {
                 ))}
               </div>
               {activeRanking[1].slice(0, 10).map((p, i) => (
-                <div className="rank-row" key={`${p.name}-${ranking}-${i}`}>
-                  <span>{String(i + 1).padStart(2, "0")}</span>
+                <div
+                  className={`rank-row ${ranking === "margin" ? "margin-ranking-row" : ""}`}
+                  key={`${p.name}-${ranking}-${i}`}
+                >
+                  <span>
+                    {rankingPosition(activeRanking[1], i, activeRanking[5])}
+                  </span>
                   <span className="stat-player-name">
                     <b>
                       <span data-player={p.name}>{p.name}</span>
@@ -1763,7 +2000,13 @@ function Stats({ focusPlayer = null, mode, setMode }) {
                     </small>
                   </span>
                   <small>{activeRanking[3](p)}</small>
-                  <strong>{activeRanking[2](p)}</strong>
+                  {ranking === "margin" ? (
+                    <span className="margin-ranking-value">
+                      Won by <strong>{activeRanking[2](p)}</strong>
+                    </span>
+                  ) : (
+                    <strong>{activeRanking[2](p)}</strong>
+                  )}
                 </div>
               ))}
             </section>
@@ -1940,7 +2183,8 @@ function Stats({ focusPlayer = null, mode, setMode }) {
                   {playerChartView === "year" ? (
                     <LineChart
                       series={compared.map((p) => ({
-                        name: p.nickname,
+                        name: p.name,
+                        nickname: p.nickname,
                         points: p.yearly
                           .map((y) => ({
                             year: y.year,
