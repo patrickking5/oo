@@ -77,10 +77,6 @@
     },
     {
       "player_full_name": "Stu Miller",
-      "scores": [0, 0, 0]
-    },
-    {
-      "player_full_name": "Bob Vogrich",
       "scores": [0, -1, -1]
     },
     {
@@ -114,6 +110,10 @@
     {
       "player_full_name": "Tom Thornton",
       "scores": [0, 0, 0]
+    },
+    {
+      "player_full_name": "Max Harmon",
+      "scores": [0, -1, -1]
     }
   ]
 }

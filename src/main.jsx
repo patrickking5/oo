@@ -626,7 +626,7 @@ function Home({ onNavigate, onOpen }) {
             <strong aria-hidden="true">40th</strong>
           </div>
 
-          <details className="news-detail news-rsvp">
+          {/* <details className="news-detail news-rsvp">
             <summary>
               <span>
                 2026 Oll Open RSVPs <small>THE FIELD</small>
@@ -639,7 +639,7 @@ function Home({ onNavigate, onOpen }) {
                 alt="2026 Oll Open RSVP list"
               />
             </div>
-          </details>
+          </details> */}
           <details className="news-detail">
             <summary>
               <span>
@@ -928,8 +928,7 @@ function OpenDetail({ open, onBack, onSelect, live = false }) {
         const eligibleA = liveEligible(a);
         const eligibleB = liveEligible(b);
         if (eligibleA !== eligibleB) return eligibleB - eligibleA;
-        if (totalFor(a) !== totalFor(b))
-          return totalFor(a) - totalFor(b);
+        if (totalFor(a) !== totalFor(b)) return totalFor(a) - totalFor(b);
         return a.player_full_name.localeCompare(b.player_full_name);
       })
     : leaderboard(open);
@@ -952,7 +951,9 @@ function OpenDetail({ open, onBack, onSelect, live = false }) {
     "--rounds": Number(open.number_of_rounds),
   };
   return (
-    <div className={`page-section page-top open-page ${live ? "live-open-page" : ""}`}>
+    <div
+      className={`page-section page-top open-page ${live ? "live-open-page" : ""}`}
+    >
       <div className="open-sticky-header">
         <div className="open-masthead">
           <button className="back" onClick={onBack}>
@@ -961,7 +962,9 @@ function OpenDetail({ open, onBack, onSelect, live = false }) {
           <h1>{live ? "Live Leaderboard" : `${open.year} Oll Open`}</h1>
           <div className="open-detail-meta">
             <Kicker>
-              {live ? "LIVE · SCOREBOARD" : `${ordinal(Number(open.year) - 1986)} Annual`}
+              {live
+                ? "LIVE · SCOREBOARD"
+                : `${ordinal(Number(open.year) - 1986)} Annual`}
             </Kicker>
             <p>{formatOpenDates(open.dates)}</p>
           </div>
@@ -1011,7 +1014,9 @@ function OpenDetail({ open, onBack, onSelect, live = false }) {
             <summary className="leader-title">
               <span className="leader-title-copy">
                 <small>{ordinal(Number(open.year) - 1986)} ANNUAL</small>
-                <h2>{open.year} {live ? "Live" : ""} Leaderboard</h2>
+                <h2>
+                  {open.year} {live ? "Live" : ""} Leaderboard
+                </h2>
               </span>
               <span className="leader-rounds" aria-label="Rounds and courses">
                 {Array.from(
@@ -1064,41 +1069,41 @@ function OpenDetail({ open, onBack, onSelect, live = false }) {
                     style={scoreColumns}
                   >
                     <span>{position}</span>
-                  <span className="leader-player-name">
-                    <b>
-                      <span data-player={p.player_full_name}>
-                        {p.player_full_name}
-                      </span>
-                    </b>
-                    <small className="player-nickname-label">
-                      <span data-player={p.player_full_name}>
-                        {nicknameFor(p.player_full_name)}
-                      </span>
-                    </small>
-                  </span>
-                  {Array.from(
-                    { length: Number(open.number_of_rounds) },
-                    (_, j) => (
-                      <span data-label={`R${j + 1}`} key={j}>
-                        {p.scores[j] > 0
-                          ? p.scores[j]
-                          : live && p.scores[j] === -1
-                            ? "—"
-                            : live && p.scores[j] === 0
-                              ? "0"
-                              : "—"}
-                      </span>
-                    ),
-                  )}
-                  <span data-label="Total">
-                    <b>
-                      {live
-                        ? totalFor(p)
-                        : scoreCount(p) === Number(open.number_of_rounds)
+                    <span className="leader-player-name">
+                      <b>
+                        <span data-player={p.player_full_name}>
+                          {p.player_full_name}
+                        </span>
+                      </b>
+                      <small className="player-nickname-label">
+                        <span data-player={p.player_full_name}>
+                          {nicknameFor(p.player_full_name)}
+                        </span>
+                      </small>
+                    </span>
+                    {Array.from(
+                      { length: Number(open.number_of_rounds) },
+                      (_, j) => (
+                        <span data-label={`R${j + 1}`} key={j}>
+                          {p.scores[j] > 0
+                            ? p.scores[j]
+                            : live && p.scores[j] === -1
+                              ? "—"
+                              : live && p.scores[j] === 0
+                                ? "0"
+                                : "—"}
+                        </span>
+                      ),
+                    )}
+                    <span data-label="Total">
+                      <b>
+                        {live
                           ? totalFor(p)
-                          : "—"}
-                    </b>
-                  </span>
+                          : scoreCount(p) === Number(open.number_of_rounds)
+                            ? totalFor(p)
+                            : "—"}
+                      </b>
+                    </span>
                   </div>
                 );
               })}
